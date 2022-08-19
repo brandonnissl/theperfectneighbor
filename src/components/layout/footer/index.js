@@ -2,7 +2,6 @@ import {isEmpty, isArray} from 'lodash';
 import {sanitize} from '../../../utils/miscellaneous';
 import Link from 'next/link';
 import {getIconComponentByName} from '../../../utils/icons-map';
-import NewsletterSubscribe from './NewsletterSubscribe';
 
 const Footer = ( {footer, footerMenus} ) => {
 	return (
