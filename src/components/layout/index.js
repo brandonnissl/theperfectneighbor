@@ -48,13 +48,7 @@ const Layout = ({ data, isPost, children }) => {
 						
 					
 			
-					<script src="/assets/js/vendor/modernizr-3.5.0.min.js" async ></script>
-					<script src="/assets/js/jquery.min.js" async ></script>
-					<script src="/assets/js/bootstrap.bundle.min.js" async ></script>
-					<script src="/assets/js/plugin.min.js" async ></script>
-					<script src="/assets/js/preloader.js" async ></script>
-					<script src="/assets/js/dark-mode.js" async ></script>
-					<script src="/assets/js/main.js" async ></script>
+					
 				</body>
 			</Head>
 

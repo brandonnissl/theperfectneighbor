@@ -16,6 +16,13 @@ export default class MyDocument extends Document {
                     <link href="/assets/css/style.css" rel="stylesheet" />
                     <link href="/assets/css/responsive.css" rel="stylesheet" />
                     <link href="/assets/css/darkmode.css" rel="stylesheet" />
+                    <script src="/assets/js/vendor/modernizr-3.5.0.min.js" async ></script>
+					<script src="/assets/js/jquery.min.js" async ></script>
+					<script src="/assets/js/bootstrap.bundle.min.js" async ></script>
+					<script src="/assets/js/plugin.min.js" async ></script>
+					<script src="/assets/js/preloader.js" async ></script>
+					<script src="/assets/js/dark-mode.js" async ></script>
+					<script src="/assets/js/main.js" async ></script>
 
                 </Head>
                 <body>

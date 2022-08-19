@@ -3,13 +3,19 @@ import Layout from '../src/components/layout';
 import { sanitize } from '../src/utils/miscellaneous';
 import { GET_PAGE } from '../src/queries/pages/get-page';
 import { handleRedirectsAndReturnData } from '../src/utils/slug';
+import Image from 'next/image';
 
 export default function Home({ data }) {
 
 	const padding_60 = {
 		paddingTop: 60,
 	}
+   
+   
 
+   const wp_loader = ({src, width, quality}) =>{
+      return `http://45.32.171.186/wp-content/uploads/`
+   }
 	return (
 		<Layout data={data}>
 		<section className="hero-card-web bg-gradient12 shape-bg3">
@@ -32,7 +38,7 @@ export default function Home({ data }) {
                               <a href="#">
                                  <div className="service-card-hh">
                                     <div className="image-sr-mm">
-                                       <img alt="custom-sport" src="http://45.32.171.186/wp-content/uploads/2022/08/1.png"/>
+                                       <img alt="custom-sport" src="/assets/img/hero/1.png" />
                                     </div>
                                     <div className="title-serv-c"><span>Summer 2022</span> Checklist</div>
                                  </div>
@@ -42,7 +48,7 @@ export default function Home({ data }) {
                               <a href="#">
                                  <div className="service-card-hh">
                                     <div className="image-sr-mm">
-                                       <img alt="custom-sport" src="http://45.32.171.186/wp-content/uploads/2022/08/2.png"/>
+                                       <img alt="custom-sport" src="/assets/img/hero/2.png" />
                                     </div>
                                     <div className="title-serv-c"><span>First Home</span>Buyer Checklist</div>
                                  </div>
@@ -52,7 +58,7 @@ export default function Home({ data }) {
                               <a href="#">
                                  <div className="service-card-hh">
                                     <div className="image-sr-mm">
-                                       <img alt="custom-sport" src="http://45.32.171.186/wp-content/uploads/2022/08/3.png"/>
+                                       <img src="/assets/img/hero/3.png" alt="custom-sport" />
                                     </div>
                                     <div className="title-serv-c"><span>Finding</span> A Handyman</div>
                                  </div>
@@ -94,49 +100,49 @@ export default function Home({ data }) {
                   <div className="work-card-set">
                      <div  className="icon-set wow fadeIn" data-wow-delay=".2s">
                         <div className="work-card cd1">
-                           <div className="icon-bg"><img src="http://45.32.171.186/wp-content/uploads/2022/08/appliances.png" alt="Industries" /></div>
+                           <div className="icon-bg"><img src="/assets/img/work-cards/appliances.png" alt="Industries" /></div>
                            <p>Appliances</p>
                         </div>
                      </div>
                      <div  className="icon-set wow fadeIn" data-wow-delay=".4s">
                         <div className="work-card cd2">
-                           <div className="icon-bg"><img src="http://45.32.171.186/wp-content/uploads/2022/08/bath.png" alt="Industries" /></div>
+                           <div className="icon-bg"><img src="/assets/img/work-cards/bath.png" alt="Industries" /></div>
                            <p>Bath</p>
                         </div>
                      </div>
                      <div className="icon-set wow fadeIn" data-wow-delay=".6s">
                         <div className="work-card cd3">
-                           <div className="icon-bg"><img src="http://45.32.171.186/wp-content/uploads/2022/08/general.png" alt="Industries" /></div>
+                           <div className="icon-bg"><img src="/assets/img/work-cards/general.png" alt="Industries" /></div>
                            <p>General Maintenace</p>
                         </div>
                      </div>
                      <div className="icon-set wow fadeIn" data-wow-delay=".8s">
                         <div className="work-card cd4">
-                           <div className="icon-bg"><img src="http://45.32.171.186/wp-content/uploads/2022/08/guides.png" alt="Industries" /></div>
+                           <div className="icon-bg"><img src="/assets/img/work-cards/guides.png" alt="Industries" /></div>
                            <p>Guides</p>
                         </div>
                      </div>
                      <div className="icon-set wow fadeIn" data-wow-delay="1s">
                         <div className="work-card cd5">
-                           <div className="icon-bg"><img src="http://45.32.171.186/wp-content/uploads/2022/08/heating.png" alt="Industries" /></div>
+                           <div className="icon-bg"><img src="/assets/img/work-cards/heating.png" alt="Industries" /></div>
                            <p>Heating & Cooling</p>
                         </div>
                      </div>
                      <div className="icon-set wow fadeIn" data-wow-delay="1.2s">
                         <div className="work-card cd6">
-                           <div className="icon-bg"><img src="http://45.32.171.186/wp-content/uploads/2022/08/kitchen.png" alt="Industries" /></div>
+                           <div className="icon-bg"><img src="/assets/img/work-cards/kitchen.png" alt="Industries" /></div>
                            <p>Kitchen</p>
                         </div>
                      </div>
                      <div className="icon-set wow fadeIn" data-wow-delay="1.4s">
                         <div className="work-card cd7">
-                           <div className="icon-bg"><img src="http://45.32.171.186/wp-content/uploads/2022/08/lawn.png" alt="Industries" /></div>
+                           <div className="icon-bg"><img src="/assets/img/work-cards/lawn.png" alt="Industries" /></div>
                            <p>Lawn & Garden</p>
                         </div>
                      </div>
                      <div className="icon-set wow fadeIn" data-wow-delay="1.6s">
                         <div className="work-card cd8">
-                           <div className="icon-bg"><img src="http://45.32.171.186/wp-content/uploads/2022/08/light.png" alt="Industries" /></div>
+                           <div className="icon-bg"><img src="/assets/img/work-cards/light.png" alt="Industries" /></div>
                            <p>Lighting & Ceiling Fans</p>
                         </div>
                      </div>

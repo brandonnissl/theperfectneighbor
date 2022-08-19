@@ -3,14 +3,7 @@ const allowedImageWordPressDomain = new URL( process.env.NEXT_PUBLIC_WORDPRESS_S
 
 module.exports = {
   trailingSlash: true,
-  webpackDevMiddleware: config => {
-    config.watchOptions = {
-      poll: 1000,
-      aggregateTimeout: 300,
-    };
-
-    return config;
-  },
+  
   sassOptions: {
     includePaths: [ path.join( __dirname, 'styles' ) ],
   },
@@ -20,7 +13,7 @@ module.exports = {
    * @see https://nextjs.org/docs/basic-features/image-optimization#domains
    */
   images: {
-    domains: [ allowedImageWordPressDomain, 'via.placeholder.com' ],
+    domains: [ allowedImageWordPressDomain, 'http://45.32.171.186', "45.32.171.186/wp-content" ],
   },
   async headers() {
     return [

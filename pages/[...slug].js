@@ -52,8 +52,6 @@ const Page = ({ data }) => {
 														</li>
 														
 													)
-													{ counter++}
-													
 												})}
 											</ul>
 
