@@ -9,7 +9,7 @@ import PropTypes from 'prop-types';
 const Layout = ({ data, isPost, children }) => {
 	const { page, post, posts, header, footer, headerMenus, footerMenus } = data || {};
 
-	console.warn(page.uri);
+
 	var titlebardark = "nav-bg-w main-header navfix fixed-top menu-white";
 	if(page.uri =='/'){
 		titlebardark = "nav-bg-b main-header navfix fixed-top menu-white";
@@ -52,11 +52,11 @@ const Layout = ({ data, isPost, children }) => {
 				</body>
 			</Head>
 
-			<Footer footer={footer} footerMenus={footerMenus?.edges} />
+			
 		</div>
 	);
 };
-
+//<Footer footer={footer} footerMenus={footerMenus?.edges} />
 Layout.propTypes = {
 	data: PropTypes.object,
 	isPost: PropTypes.bool,

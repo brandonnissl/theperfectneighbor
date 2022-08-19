@@ -40,7 +40,6 @@ const Page = ({ data }) => {
 								<div className="col-lg-12 v-center">
 									<div className="bread-inner">
 										<div className="bread-menu">
-											{console.warn(data?.page?.seo?.breadcrumbs.length)}
 											{data?.page?.seo?.breadcrumbs.length ? (
 												<ul>
 												{data?.page?.seo?.breadcrumbs.map(breadcrumb=> {
@@ -55,7 +54,7 @@ const Page = ({ data }) => {
 												})}
 											</ul>
 
-											):null}
+											):<></>}
 											
 										</div>
 										<div className="bread-title">
@@ -93,7 +92,7 @@ const Page = ({ data }) => {
 
 
 							</div>
-							<RecentAndCategories data={data}></RecentAndCategories>
+							
 							
 						</div>
 					</div>
