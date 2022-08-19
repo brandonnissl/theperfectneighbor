@@ -41,24 +41,22 @@ const Layout = ({ data, isPost, children }) => {
 				) : null}
 				<body>
 					<header className={titlebardark}>
-					<Header header={header} headerMenus={headerMenus?.edges} />
-						
+						<Header header={header} headerMenus={headerMenus?.edges} />
 					</header>
 						
-					
+					{children}
 						
 					
 			
-					<Footer footer={footer} footerMenus={footerMenus?.edges} />
+					
 				</body>
 			</Head>
-					
-			
+
+			<Footer footer={footer} footerMenus={footerMenus?.edges} />
 		</div>
 	);
 };
-//
-//{children}
+
 Layout.propTypes = {
 	data: PropTypes.object,
 	isPost: PropTypes.bool,
