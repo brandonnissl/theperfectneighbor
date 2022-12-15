@@ -9,9 +9,18 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "axios": "^0.27.2",
+    "cookies": "^0.8.0",
+    "date-fns": "^2.29.3",
+    "dompurify": "^2.4.0",
+    "lodash": "^4.17.21",
+    "meilisearch": "^0.30.0",
     "next": "12.3.0",
+    "next-auth": "^4.10.3",
     "react": "18.2.0",
-    "react-dom": "18.2.0"
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.35.0",
+    "reactstrap": "^9.1.5"
   },
   "devDependencies": {
     "eslint": "8.23.1",
