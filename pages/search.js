@@ -143,7 +143,7 @@ const Search = ({ posts, categories, homepage }) => {
                   {homepage.attributes.HeadingSpan2}
                   {homepage.attributes.HeadingSpan3}
                 </h2>
-                <h4>Opps! We didn't find anything in your search.</h4>
+                <h4>Opps! We didn&apos;t find anything in your search.</h4>
                 <form className="cours-search" action="/search">
                   <div className="input-group">
                     <input

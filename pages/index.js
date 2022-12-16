@@ -9,6 +9,7 @@ import React, { useEffect, useContext, useState } from "react";
 const Home = ({ posts, categories, homepage }) => {
   const [userData, setUserData] = useState();
 
+
   const getUserData = () => {
     return axios
       .get("/api/auth/user", {})
@@ -51,7 +52,7 @@ const Home = ({ posts, categories, homepage }) => {
             <div className="mw800 m-auto">
               <div className="row">
                 {homepage.attributes.HomeCards.map((card) => (
-                  <div class="item col-md-4 col-sm-6">
+                  <div class="item col-md-4 col-sm-6" key={card.id}>
                     <div class="cours-bx">
                       <div class="action-box">
                         <img src={strapiImage(card.CardImage.data.attributes.url)} alt="" />

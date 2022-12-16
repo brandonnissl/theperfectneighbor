@@ -10,24 +10,24 @@ const Nav = ({ categories, loggedin, userData }) => {
   var account_or_loggin = (
     <span>
       <li>
-        <a href="/login" className="btn-link">
-          Login |{" "}
-        </a>
+        <Link href={"/login"}>
+          <a className="btn-link">Login | </a>
+        </Link>
       </li>{" "}
       <li></li>
       <li>
-        <a href="/register" className="btn-link">
-          Register
-        </a>
+        <Link href={"/register"}>
+          <a className="btn-link">Register</a>
+        </Link>
       </li>
     </span>
   );
   if (loggedin) {
     account_or_loggin = (
       <li>
-        <a href="/user" className="btn-link">
-          Account
-        </a>
+        <Link href={"/user"}>
+          <a className="btn-link">Account</a>
+        </Link>
       </li>
     );
   }
@@ -37,9 +37,11 @@ const Nav = ({ categories, loggedin, userData }) => {
       <div className="menu-bar clearfix">
         <div className="container clearfix">
           <div className="menu-logo">
-            <a href="/">
-              <img src="/assets/images/logo.svg" alt=""></img>
-            </a>
+            <Link href={"/"}>
+              <a>
+                <img src="/assets/images/logo.svg" alt=""></img>
+              </a>
+            </Link>
           </div>
 
           <button
@@ -94,9 +96,11 @@ const Nav = ({ categories, loggedin, userData }) => {
           >
             <ul className="nav navbar-nav">
               <li className="active">
-                <a href="javascript:;">
-                  Home <i className="fa fa-chevron-down"></i>
-                </a>
+                <Link href={"javascript:;"}>
+                  <a>
+                    Home <i className="fa fa-chevron-down"></i>
+                  </a>
+                </Link>
 
                 <ul className="sub-menu">
                   {categories.map((category) => (

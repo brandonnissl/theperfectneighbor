@@ -2,7 +2,7 @@ import React, { useState, useContext } from "react";
 import { useForm, reset } from "react-hook-form";
 import { UserContext } from "../context/user";
 
-function registerForm() {
+function RegisterForm() {
   const { doRegister } = useContext(UserContext);
 
   const {
@@ -12,6 +12,7 @@ function registerForm() {
     reset,
     formState: { errors },
   } = useForm();
+
   const password = {};
   password.current = watch("password", "");
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -132,4 +133,4 @@ function registerForm() {
   );
 }
 
-export default registerForm;
+export default RegisterForm;
