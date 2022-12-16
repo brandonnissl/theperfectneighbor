@@ -3,7 +3,7 @@ import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 import ReactMarkdown from "react-markdown";
 
 
-const MyModal = ({ children, header, trigger, taskid, userid }) => {
+const MyModal = ({ content, header, trigger, taskid, userid }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   const [isLoading, setIsLoading] = useState(false);
@@ -52,7 +52,7 @@ const MyModal = ({ children, header, trigger, taskid, userid }) => {
         <ModalBody>
             <div className="row">
                 <div className="col-sm-8">
-                    <ReactMarkdown children={children} />
+                    <ReactMarkdown >{children}</ReactMarkdown>
                 </div>
                 <div className="col-sm-4">
                     Ads
