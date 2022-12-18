@@ -19,7 +19,7 @@ import { Inter } from "@next/font/google";
 
 export const GlobalContext = createContext({});
 
-const inter = Inter({subsets: ['latin']})
+const inter = Inter({variable: '--inter-font'});
 
 const MyApp = ({ Component, session, pageProps }) => {
   const { global } = pageProps;
