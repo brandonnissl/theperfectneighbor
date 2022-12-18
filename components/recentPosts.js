@@ -33,16 +33,18 @@ const RecentPosts = ({}) => {
             <div class="ttr-post-info">
               <div class="ttr-post-header">
                 <h6 class="post-title">
-                  <a href="blog-details.html">{post.attributes.title}</a>
+                <Link href={`/post/${post.attributes.slug}`}>
+                {post.attributes.title}
+                  </Link>
                 </h6>
               </div>
               <ul class="media-post">
                 <li>
                   <Link href={`/post/${post.attributes.slug}`}>
-                    <a>
+                    
                       <i class="fa fa-calendar"></i>
                       {dateFormat(post.attributes.publishedAt)}
-                    </a>
+                    
                   </Link>
                 </li>
               </ul>

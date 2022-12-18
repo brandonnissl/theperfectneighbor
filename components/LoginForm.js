@@ -30,9 +30,9 @@ function LoginForm() {
             
           >
             <Link href={"/"}>
-            <a>
+            
               <img src="assets/images/logo-white-2.png" alt="" />
-            </a>
+            
             </Link>
             
           </div>
@@ -45,7 +45,7 @@ function LoginForm() {
                 <p>
                   Don&apos;t have an account?{" "}
                   <Link href={"/register"}>
-                  <a >Create one here</a></Link>
+                  Create one here</Link>
                 </p>
               </div>
               <form class="contact-bx" onSubmit={handleSubmit(onSubmit)}>
@@ -117,15 +117,15 @@ function LoginForm() {
                   <div class="col-lg-12">
                     <h6>Login with Social media</h6>
                     <div class="d-flex">
-                      <Link href="#">
-                      <a class="btn flex-fill m-r5 facebook">
+                      <Link href="#" class="btn flex-fill m-r5 facebook">
+                      
                         <i class="fa fa-facebook"></i>Facebook
-                      </a>
+                      
                       </Link>
-                      <Link href="#">
-                      <a class="btn flex-fill m-l5 google-plus" >
+                      <Link href="#" class="btn flex-fill m-l5 google-plus">
+                      
                         <i class="fa fa-google-plus"></i>Google Plus
-                      </a>
+                      
                       </Link>
                       
                     </div>

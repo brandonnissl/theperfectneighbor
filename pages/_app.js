@@ -15,8 +15,11 @@ import "../styles/vendors/revolution/css/navigation.css";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
 import { createContext } from "react";
+import { Inter } from "@next/font/google";
 
 export const GlobalContext = createContext({});
+
+const inter = Inter({subsets: ['latin']})
 
 const MyApp = ({ Component, session, pageProps }) => {
   const { global } = pageProps;
@@ -31,7 +34,9 @@ const MyApp = ({ Component, session, pageProps }) => {
       </Head>
       <GlobalContext.Provider value={global.attributes}>
         <UserProvider>
-          <Component {...pageProps} />
+          <main className={inter.className}>
+            <Component {...pageProps} />
+          </main>
         </UserProvider>
       </GlobalContext.Provider>
     </>

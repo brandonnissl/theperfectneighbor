@@ -33,7 +33,6 @@ const MyModal = ({ content, header, trigger, taskid, userid }) => {
 
         const result = await response.json();
 
-        console.log('result is: ', JSON.stringify(result, null, 4));
         window.location.reload(false);
 
     } catch (err){

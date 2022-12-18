@@ -5,6 +5,7 @@ import { fetchAPI } from "../lib/api";
 //import styles from "../styles/Home.module.css";
 import { strapiImage } from "../lib/utils/miscellaneous";
 import React, { useEffect, useContext, useState } from "react";
+import Link from "next/link";
 
 const Home = ({ posts, categories, homepage }) => {
   const [userData, setUserData] = useState();
@@ -56,15 +57,18 @@ const Home = ({ posts, categories, homepage }) => {
                     <div class="cours-bx">
                       <div class="action-box">
                         <img src={strapiImage(card.CardImage.data.attributes.url)} alt="" />
-                        <a href={card.Link} class="btn">
+                        <Link href={card.Link} class="btn">
+                        
                           Read More
-                        </a>
+                        
+                        </Link>
                       </div>
                       <div class="info-bx text-center">
                         <h5>
-                          <a href={card.Link}>
+                          <Link  href={card.Link}>
+                          
                           <span>{card.CardSpanTitle}</span> {card.Title}
-                          </a>
+                          </Link>
                         </h5>
                       </div>
                     </div>

@@ -55,7 +55,7 @@ const Post = ({ post, categories }) => {
 			<div class="container">
 				<ul class="list-inline">
 					<li key={post.attributes.category.id}><Link href="#">
-                            <a>{post.attributes.category.data.attributes.name}</a>
+                            {post.attributes.category.data.attributes.name}
                           </Link></li>
 					<li key={post.id}>{post.attributes.title}</li>
 				</ul>
