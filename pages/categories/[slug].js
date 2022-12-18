@@ -67,7 +67,10 @@ const Catagory = ({ posts, categories, category }) => {
             <div class="container">
               <div class="ttr-blog-grid-3 row" id="masonry">
                 {posts.map((post) => (
-                  <div class="post action-card col-lg-4 col-md-6 col-sm-12 col-xs-12 m-b40" key={post.id}>
+                  <div
+                    class="post action-card col-lg-4 col-md-6 col-sm-12 col-xs-12 m-b40"
+                    key={post.id}
+                  >
                     <div class="recent-news">
                       <div class="action-box">
                         <img src={post.attributes.featuredImage} alt="" />
@@ -75,20 +78,33 @@ const Catagory = ({ posts, categories, category }) => {
                       <div class="info-bx">
                         <ul class="media-post">
                           <li>
-                            <a href="#">
-                              <i class="fa fa-calendar"></i>{dateFormat(post.attributes.publishedAt)}
-                            </a>
+                            <Link href={`/post/${post.attributes.slug}`}>
+                              <a>
+                                <i class="fa fa-calendar"></i>
+                                {dateFormat(post.attributes.publishedAt)}
+                              </a>
+                            </Link>
                           </li>
                           <li>
-                            <a href="#">
-                              <i class="fa fa-user"></i>By{" "}
-                              {post.attributes.author.data.attributes.FirstName}{" "}
-                              {post.attributes.author.data.attributes.LastName}
-                            </a>
+                            <Link href={`/post/${post.attributes.slug}`}>
+                              <a>
+                                <i class="fa fa-user"></i>By{" "}
+                                {
+                                  post.attributes.author.data.attributes
+                                    .FirstName
+                                }{" "}
+                                {
+                                  post.attributes.author.data.attributes
+                                    .LastName
+                                }
+                              </a>
+                            </Link>
                           </li>
                         </ul>
                         <h5 class="post-title">
-                          <a href="#">{post.attributes.title}</a>
+                        <Link href={`/post/${post.attributes.slug}`}>
+                          <a>{post.attributes.title}</a>
+                          </Link>
                         </h5>
                         <p>{getWordStr(post.attributes.content)}...</p>
                         <div class="post-extra">
