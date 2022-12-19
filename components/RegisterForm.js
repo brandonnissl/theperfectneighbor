@@ -1,6 +1,8 @@
 import React, { useState, useContext } from "react";
+import Link from "next/link";
 import { useForm, reset } from "react-hook-form";
 import { UserContext } from "../context/user";
+import Link from "next/link";
 
 function RegisterForm() {
   const { doRegister } = useContext(UserContext);
