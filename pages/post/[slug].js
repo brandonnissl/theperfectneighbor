@@ -36,6 +36,8 @@ const Post = ({ post, categories }) => {
       .catch((err) => console.error(err));
   };
 
+  console.warn(post.attributes.FeaturedImage.data.attributes)
+
   return (
     <Layout categories={categories} userData={userData}>
       <div className="page-content bg-white">
@@ -53,9 +55,9 @@ const Post = ({ post, categories }) => {
           <div className="container">
             <ul className="list-inline">
               <li key={post.attributes.category.id}>
-                <Link href="#">
+                
                   {post.attributes.category.data.attributes.name}
-                </Link>
+                
               </li>
               <li key={post.id}>{post.attributes.title}</li>
             </ul>
@@ -69,7 +71,7 @@ const Post = ({ post, categories }) => {
                   <div className="recent-news blog-lg">
                     <div className="action-box blog-lg">
                       <img
-                        src={post.attributes.featuredImage}
+                        src={`https://clownfish-app-5whtn.ondigitalocean.app${post.attributes.FeaturedImage.data.attributes.url}`}
                         className="img-fluid"
                       ></img>
                     </div>

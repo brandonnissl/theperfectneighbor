@@ -8,12 +8,13 @@ const RecentPosts = ({}) => {
 
   useEffect(() => {
     fetch(
-      "https://clownfish-app-5whtn.ondigitalocean.app/api/posts?sort=publishedAt:desc&pagination[pageSize]=3"
+      "https://clownfish-app-5whtn.ondigitalocean.app/api/posts?populate=%2A&sort=publishedAt:desc&pagination[pageSize]=3"
     )
       .then((response) => response.json())
       .then((res) => setPostsData(res.data))
       .catch((err) => console.error(err));
   }, []);
+  console.warn(posts[0])
 
   return (
     <div class="widget recent-posts-entry">
@@ -24,7 +25,7 @@ const RecentPosts = ({}) => {
             <div class="ttr-post-media">
               {" "}
               <img
-                src={post.attributes.featuredImage}
+                src={`https://clownfish-app-5whtn.ondigitalocean.app${post.attributes.FeaturedImage.data.attributes.formats.small.url}` || ""}
                 width="200"
                 height="143"
                 alt=""
