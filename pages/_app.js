@@ -15,11 +15,10 @@ import "../styles/vendors/revolution/css/navigation.css";
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
 import { createContext } from "react";
-import { Inter } from "@next/font/google";
+import { Montserrat, Open_Sans, Poppins, Raleway, Roboto, Rubik } from "@next/font/google";
 
 export const GlobalContext = createContext({});
 
-const inter = Inter({variable: '--inter-font'});
 
 const MyApp = ({ Component, session, pageProps }) => {
   const { global } = pageProps;
@@ -34,9 +33,7 @@ const MyApp = ({ Component, session, pageProps }) => {
       </Head>
       <GlobalContext.Provider value={global.attributes}>
         <UserProvider>
-          <main className={inter.className}>
             <Component {...pageProps} />
-          </main>
         </UserProvider>
       </GlobalContext.Provider>
     </>

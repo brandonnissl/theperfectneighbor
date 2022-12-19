@@ -38,20 +38,20 @@ const Post = ({ post, categories }) => {
 
   return (
     <Layout categories={categories} userData={userData}>
-      <div class="page-content bg-white">
+      <div className="page-content bg-white">
         <div
-          class="page-banner ovbl-dark"
+          className="page-banner ovbl-dark"
           style={{ backgroundImage: "url(assets/images/banner/banner2.jpg)" }}
         >
-          <div class="container">
-            <div class="page-banner-entry">
-              <h1 class="text-white">{post.attributes.title}</h1>
+          <div className="container">
+            <div className="page-banner-entry">
+              <h1 className="text-white">{post.attributes.title}</h1>
             </div>
           </div>
         </div>
-        <div class="breadcrumb-row">
-          <div class="container">
-            <ul class="list-inline">
+        <div className="breadcrumb-row">
+          <div className="container">
+            <ul className="list-inline">
               <li key={post.attributes.category.id}>
                 <Link href="#">
                   {post.attributes.category.data.attributes.name}
@@ -61,85 +61,85 @@ const Post = ({ post, categories }) => {
             </ul>
           </div>
         </div>
-        <div class="content-block">
-          <div class="section-area section-sp1">
-            <div class="container">
-              <div class="row">
-                <div class="col-lg-8 col-xl-8">
-                  <div class="recent-news blog-lg">
-                    <div class="action-box blog-lg">
+        <div className="content-block">
+          <div className="section-area section-sp1">
+            <div className="container">
+              <div className="row">
+                <div className="col-lg-8 col-xl-8">
+                  <div className="recent-news blog-lg">
+                    <div className="action-box blog-lg">
                       <img
                         src={post.attributes.featuredImage}
                         className="img-fluid"
                       ></img>
                     </div>
-                    <div class="info-bx">
-                      <ul class="media-post">
+                    <div className="info-bx">
+                      <ul className="media-post">
                         <li>
                           <a href="#">
-                            <i class="fa fa-calendar"></i>
+                            <i className="fa fa-calendar"></i>
                             {dateFormat(post.attributes.publishedAt)}
                           </a>
                         </li>
                         <li>
                           <a href="#">
-                            <i class="fa fa-user"></i> By{" "}
+                            <i className="fa fa-user"></i> By{" "}
                             {post.attributes.author.data.attributes.FirstName}{" "}
                             {post.attributes.author.data.attributes.LastName}
                           </a>
                         </li>
                       </ul>
                       <ReactMarkdown>{post.attributes.content}</ReactMarkdown>
-                      <div class="ttr-divider bg-gray">
-                        <i class="icon-dot c-square"></i>
+                      <div className="ttr-divider bg-gray">
+                        <i className="icon-dot c-square"></i>
                       </div>
                       <h6>SHARE </h6>
-                      <ul class="list-inline contact-social-bx">
+                      <ul className="list-inline contact-social-bx">
                         <FacebookShareButton url={url}>
                           <li>
-                            <a class="btn outline radius-xl">
-                              <i class="fa fa-facebook"></i>
+                            <a className="btn outline radius-xl">
+                              <i className="fa fa-facebook"></i>
                             </a>
                           </li>
                         </FacebookShareButton>
                         <li>
                           <TwitterShareButton url={url}>
-                            <a class="btn outline radius-xl">
-                              <i class="fa fa-twitter"></i>
+                            <a className="btn outline radius-xl">
+                              <i className="fa fa-twitter"></i>
                             </a>
                           </TwitterShareButton>
                         </li>
                         <li>
                           <LinkedinShareButton url={url}>
-                            <a class="btn outline radius-xl">
-                              <i class="fa fa-linkedin"></i>
+                            <a className="btn outline radius-xl">
+                              <i className="fa fa-linkedin"></i>
                             </a>
                           </LinkedinShareButton>
                         </li>
                       </ul>
-                      <div class="ttr-divider bg-gray">
-                        <i class="icon-dot c-square"></i>
+                      <div className="ttr-divider bg-gray">
+                        <i className="icon-dot c-square"></i>
                       </div>
                     </div>
                   </div>
                 </div>
-                <div class="col-lg-4 col-xl-4">
-                  <aside class="side-bar sticky-top">
-                    <div class="widget">
-                      <h6 class="widget-title">Search</h6>
-                      <div class="search-bx style-1">
+                <div className="col-lg-4 col-xl-4">
+                  <aside className="side-bar sticky-top">
+                    <div className="widget">
+                      <h6 className="widget-title">Search</h6>
+                      <div className="search-bx style-1">
                         <form role="search" action="/search">
-                          <div class="input-group">
+                          <div className="input-group">
                             <input
                               name="search"
-                              class="form-control"
+                              className="form-control"
                               placeholder="Enter your keywords..."
                               type="text"
                             />
-                            <span class="input-group-btn">
+                            <span className="input-group-btn">
                               <button
                                 type="submit"
-                                class="fa fa-search text-primary"
+                                className="fa fa-search text-primary"
                               ></button>
                             </span>
                           </div>

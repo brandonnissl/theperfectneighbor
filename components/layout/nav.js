@@ -26,7 +26,7 @@ const Nav = ({ categories, loggedin, userData }) => {
     account_or_loggin = (
       <li>
         <Link href={"/user"} className="btn-link">
-          Account
+          Dashboard
         </Link>
       </li>
     );
