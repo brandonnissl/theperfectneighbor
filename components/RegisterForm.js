@@ -33,103 +33,140 @@ function RegisterForm() {
   };
 
   return (
-    <section class="login-page pad-tb">
-      <div class="v-center m-auto">
-        <a href="#" class="d-block text-center mb30">
-          <img
-            src="/images/white-logo.png"
-            alt="Logo"
-            class="mega-darks-logo"
-          />
-        </a>
-        <div class="login-form-div">
-          <h4 class="mb40 text-center">Create an Account</h4>
-          <div class="form-block">
-            <form onSubmit={handleSubmit(onSubmit)}>
-              <div class="fieldsets row">
-                <div class="col-md-12 form-group">
-                  <input
-                    type="text"
-                    placeholder="Username"
-                    {...register("username", {
-                      required: "Please choose a username",
-                    })}
-                  />
-                  {errors.username && <p>{errors.username.message}</p>}
-                </div>
-                <div class="col-md-12 form-group">
-                  <input
-                    type="email"
-                    placeholder="Email Address"
-                    {...register("email", {
-                      required: "Email is required",
-                      pattern:
-                        /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
-                    })}
-                  />
-                  {errors.email && <p>{errors.email.message}</p>}
-                </div>
-                <div class="col-md-12 form-group">
-                  <input
-                    type="password"
-                    placeholder="Password"
+
+    <div className="page-wraper">
+        <div className="account-form">
+          <div
+            className="account-head"
+            
+          >
+            <Link href={"/"}>
+            
+              <img src="assets/images/logo-white-2.png" alt="" />
+            
+            </Link>
+            
+          </div>
+          <div className="account-form-inner">
+            <div className="account-container">
+              <div className="heading-bx left">
+                <h2 className="title-head">
+                  Create an <span>Account</span>
+                </h2>
+                <p>
+                  Have an Account?{" "}
+                  <Link href={"/login"}>
+                  Login Here</Link>
+                </p>
+              </div>
+              <form className="contact-bx" onSubmit={handleSubmit(onSubmit)}>
+                <div className="row placeani">
+                  <div className="col-lg-12">
+                    <div className="form-group">
+                      <div className="input-group">
+                        <label>Username</label>
+                        <input
+                          type="text"
+                          className="form-control"
+                          placeholder="Username"
+                          {...register("username", {
+                            required: "Please choose a username",
+                          })}
+                        />{errors.username && <p>{errors.username.message}</p>}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-lg-12">
+                    <div className="form-group">
+                      <div className="input-group">
+                        <label>Email Address</label>
+                        <input
+                          type="email"
+                          placeholder="Email Address"
+                          className="form-control"
+                          {...register("email", {
+                            required: "Email is required",
+                            pattern:
+                              /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/,
+                          })}
+                        />{errors.email && <p>{errors.email.message}</p>}
+                      </div>
+                    </div>
+                  </div>
+
+                  <div className="col-lg-12">
+                    <div className="form-group">
+                      <div className="input-group">
+                        <label>Password</label>
+                        <input
+                          type="password"
+                          className="form-control"
+                          placeholder="Password"
                     {...register("password", {
                       required: "You must specify a password",
                       minLength: { value: 8, message: "At least 8 character" },
                     })}
-                  />
-                  {errors.password && <p>{errors.password.message}</p>}
+                        />{errors.password && <p>{errors.password.message}</p>}
+                      </div>
+                    </div>
+                  </div>
+                  
+                  <div className="col-lg-12">
+                    <div className="form-group">
+                      <div className="input-group">
+                        <label>Password</label>
+                        <input
+                         type="password"
+                         placeholder="Confirm Password"
+                         {...register("repeatpassword", {
+                           validate: (value) =>
+                             value === password.current ||
+                             "The passwords do not match",
+                         })}
+                        />{errors.repeatpassword && (
+                          <p>{errors.repeatpassword.message}</p>
+                        )}
+                      </div>
+                    </div>
+                  </div>
+
+                  
+                  <div className="col-lg-12 m-b30">
+                    <button
+                      name="submit"
+                      type="submit"
+                      value="Submit"
+                      className="btn button-md"
+                      disabled={isSubmitting}
+                    >
+                      {isSubmitting && "Registering..."}
+                    {!isSubmitting && "Register"}
+                    </button>
+                  </div>
+                  {alert[1]}
+                  <div className="col-lg-12">
+                    <h6>Login with Social media</h6>
+                    <div className="d-flex">
+                      <Link href="#" className="btn flex-fill m-r5 facebook">
+                      
+                        <i className="fa fa-facebook"></i>Facebook
+                      
+                      </Link>
+                      <Link href="#" className="btn flex-fill m-l5 google-plus">
+                      
+                        <i className="fa fa-google-plus"></i>Google Plus
+                      
+                      </Link>
+                      
+                    </div>
+                  </div>
                 </div>
-                <div class="col-md-12 form-group">
-                  <input
-                    type="password"
-                    placeholder="Confirm Password"
-                    {...register("repeatpassword", {
-                      validate: (value) =>
-                        value === password.current ||
-                        "The passwords do not match",
-                    })}
-                  />
-                  {errors.repeatpassword && (
-                    <p>{errors.repeatpassword.message}</p>
-                  )}
-                </div>
-              </div>
-              <div class="fieldsets row mt20">
-                <div class="col-md-6 form-group v-center">
-                  <button
-                    type="submit"
-                    class="lnk btn-main bg-btn"
-                    disabled={isSubmitting}
-                  >
-                    {isSubmitting && "Registering..."}
-                    {!isSubmitting && "Register"} <span class="circle"></span>
-                  </button>
-                </div>
-                {alert[1]}
-                <div class="col-md-6 form-group v-center text-right">
-                  <a href="#" class="psforgt">
-                    Forgot Password?
-                  </a>{" "}
-                </div>
-              </div>
-              <hr class="mt30 mb30" />
-              <div class="text-center">
-                <p class="mb20">or Login with:</p>
-                <div class="social-btnnxx">
-                  <a href="#" class="btn-main fb-btn">
-                    <i class="fab fa-facebook-f"></i> Facebook
-                  </a>
-                  <a href="#" class="btn-main google-btn">
-                    <i class="fab fa-google"></i> Google
-                  </a>
-                </div>
-              </div>
-            </form>
+              </form>
+            </div>
           </div>
         </div>
       </div>
-    </section>
   );
 }
 

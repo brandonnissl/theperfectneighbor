@@ -29,7 +29,7 @@ const Home = ({ posts, categories, homepage }) => {
               <div className="col-md-12 text-center text-white">
                 <h2>
                   {homepage.attributes.HeadingSpan1}{" "}
-                  {homepage.attributes.HeadingSpan2}
+                  {homepage.attributes.HeadingSpan2}{" "}
                   {homepage.attributes.HeadingSpan3}
                 </h2>
                 <h4>{homepage.attributes.HeadingText}</h4>
@@ -53,17 +53,21 @@ const Home = ({ posts, categories, homepage }) => {
             <div className="mw800 m-auto">
               <div className="row">
                 {homepage.attributes.HomeCards.map((card) => (
-                  <div class="item col-md-4 col-sm-6" key={card.id}>
-                    <div class="cours-bx">
-                      <div class="action-box">
+                 
+                  <div className="item col-md-4 col-sm-6" key={card.id}>
+                    <div className="cours-bx">
+                      <div className="action-box">
+                        <Link href={card.Link}>
+                          
                         <img src={strapiImage(card.CardImage.data.attributes.url)} alt="" />
-                        <Link href={card.Link} class="btn">
+                        </Link>
+                        <Link href={card.Link} className="btn">
                         
                           Read More
                         
                         </Link>
                       </div>
-                      <div class="info-bx text-center">
+                      <div className="info-bx text-center">
                         <h5>
                           <Link  href={card.Link}>
                           
@@ -77,6 +81,60 @@ const Home = ({ posts, categories, homepage }) => {
               </div>
             </div>
           </div>
+        </div>
+        <div className="content-block">
+        <div className="section-area section-sp2 popular-courses-bx">
+                <div className="container">
+					<div className="row">
+						<div className="col-md-12 heading-bx style1 text-center">
+							<h2 className="title-head">Home maintenance made easy - one stop for all your home needs!</h2>
+							<p>With The Perfect Neighbor, you can rest assured that all of your home maintenance needs are taken care of!</p>
+						</div>
+					</div>
+					<div className="row m-b50">
+						<div className="col-lg-4 col-md-6">
+							<div className="services-bx text-left m-b30">
+								<div className="feature-lg text-white m-b30">
+									<span className="icon-cell"><i className="flaticon-professor"></i></span> 
+								</div>
+								<div className="icon-content">
+									<h5 className="ttr-tilte">DIY Home Maintenance</h5>
+									<p>Let us take the stress out of managing your home with our comprehensive knowledge base and tools. The Perfect Neighbor offers answers to all your home maintenance questions, as well as helpful how-to guides and checklists to make sure you don’t miss a beat.</p>
+								</div>
+								<div className="service-no">01</div>
+							</div>
+						</div>
+						<div className="col-lg-4 col-md-6">
+							<div className="services-bx text-left m-b30">
+								<div className="feature-lg text-white m-b30">
+									<span className="icon-cell"><i className="flaticon-exam"></i></span> 
+								</div>
+								<div className="icon-content">
+									<h5 className="ttr-tilte">Right Tool for the Job</h5>
+									<p>The Perfect Neighbor is the perfect solution for homeowners looking to find the ideal products for their DIY home maintenance needs. This convenient service helps save time and energy and allows them to find the right products for their specific project.<br/>&nbsp;</p>
+									
+								</div>
+								<div className="service-no">02</div>
+							</div>
+						</div>
+						<div className="col-lg-4 col-md-12">
+							<div className="services-bx text-left m-b30">
+								<div className="feature-lg text-white m-b30">
+									<span className="icon-cell"><i className="flaticon-books"></i></span> 
+								</div>
+								<div className="icon-content">
+									<h5 className="ttr-tilte">Partners</h5>
+									<p> We provided high quality contractors that are dependable and trustworthy. We understand the importance of having a reliable contractor on your side, so we work hard to identify experienced professionals who can get the job done right.<br/>&nbsp;</p>
+								</div>
+								<div className="service-no">03</div>
+							</div>
+						</div>
+					</div>
+				</div>
+			
+			</div>
+        
+
         </div>
       </div>
     </div>
