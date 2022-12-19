@@ -15,9 +15,7 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Image from "next/image";
 
 const Catagory = ({ posts, categories, category }) => {
-  const padding_60 = {
-    paddingTop: 60,
-  };
+
 
   useEffect(() => {
     getUserData();
@@ -38,7 +36,6 @@ const Catagory = ({ posts, categories, category }) => {
     return str.split(/\s+/).slice(0, 12).join(" ");
   }
 
-  const headerColor = "dark";
   return (
     <Layout categories={categories} userData={userData}>
       <div class="page-content bg-white">
@@ -79,15 +76,15 @@ const Catagory = ({ posts, categories, category }) => {
                         <ul class="media-post">
                           <li>
                             <Link href={`/post/${post.attributes.slug}`}>
-                              <a>
+                              
                                 <i class="fa fa-calendar"></i>
                                 {dateFormat(post.attributes.publishedAt)}
-                              </a>
+                            
                             </Link>
                           </li>
                           <li>
                             <Link href={`/post/${post.attributes.slug}`}>
-                              <a>
+                              
                                 <i class="fa fa-user"></i>By{" "}
                                 {
                                   post.attributes.author.data.attributes
@@ -97,19 +94,19 @@ const Catagory = ({ posts, categories, category }) => {
                                   post.attributes.author.data.attributes
                                     .LastName
                                 }
-                              </a>
+                              
                             </Link>
                           </li>
                         </ul>
                         <h5 class="post-title">
                         <Link href={`/post/${post.attributes.slug}`}>
-                          <a>{post.attributes.title}</a>
+                          {post.attributes.title}
                           </Link>
                         </h5>
                         <p>{getWordStr(post.attributes.content)}...</p>
                         <div class="post-extra">
-                          <Link href={`/post/${post.attributes.slug}`}>
-                            <a class="btn-link">READ MORE</a>
+                          <Link href={`/post/${post.attributes.slug}`}  class="btn-link">
+                            READ MORE
                           </Link>
                         </div>
                       </div>

@@ -3,7 +3,7 @@ import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 import ReactMarkdown from "react-markdown";
 
 
-const MyModal = ({ content, header, trigger, taskid, userid }) => {
+const MyModal = ({ children, header, trigger, taskid, userid }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   const [isLoading, setIsLoading] = useState(false);
