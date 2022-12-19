@@ -12,6 +12,7 @@ import "../styles/vendors/revolution/css/layers.css";
 import "../styles/vendors/revolution/css/settings.css";
 import "../styles/vendors/revolution/css/navigation.css";
 
+
 import { fetchAPI } from "../lib/api";
 import { getStrapiMedia } from "../lib/media";
 import { createContext } from "react";

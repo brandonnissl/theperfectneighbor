@@ -95,7 +95,7 @@ const Home = ({ posts, categories, homepage }) => {
 						<div className="col-lg-4 col-md-6">
 							<div className="services-bx text-left m-b30">
 								<div className="feature-lg text-white m-b30">
-									<span className="icon-cell"><i className="flaticon-professor"></i></span> 
+									<span className="icon-cell"><i className="flaticon-books"></i></span> 
 								</div>
 								<div className="icon-content">
 									<h5 className="ttr-tilte">DIY Home Maintenance</h5>
@@ -107,7 +107,7 @@ const Home = ({ posts, categories, homepage }) => {
 						<div className="col-lg-4 col-md-6">
 							<div className="services-bx text-left m-b30">
 								<div className="feature-lg text-white m-b30">
-									<span className="icon-cell"><i className="flaticon-exam"></i></span> 
+									<span className="icon-cell"><i className="flaticon-abacus"></i></span> 
 								</div>
 								<div className="icon-content">
 									<h5 className="ttr-tilte">Right Tool for the Job</h5>
@@ -120,7 +120,7 @@ const Home = ({ posts, categories, homepage }) => {
 						<div className="col-lg-4 col-md-12">
 							<div className="services-bx text-left m-b30">
 								<div className="feature-lg text-white m-b30">
-									<span className="icon-cell"><i className="flaticon-books"></i></span> 
+									<span className="icon-cell"><i className="flaticon-ink"></i></span> 
 								</div>
 								<div className="icon-content">
 									<h5 className="ttr-tilte">Partners</h5>
