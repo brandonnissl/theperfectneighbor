@@ -4,7 +4,7 @@ import { useEffect, useContext, useState } from 'react';
 
 import { UserContext } from '../../context/user';
 
-export default function facebookCallback() {
+export default function FacebookCallback() {
   const [error, setError] = useState();
   const router = useRouter();
   const { doFacebookCallback, user, setUser } = useContext(UserContext);

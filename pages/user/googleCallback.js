@@ -3,7 +3,7 @@ import { useEffect, useContext, useState } from 'react';
 
 import { UserContext } from '../../context/user';
 
-export default function googleCallback() {
+export default function GoogleCallback() {
   const [error, setError] = useState();
   const router = useRouter();
   const { doGoogleCallback, user, setUser } = useContext(UserContext);
