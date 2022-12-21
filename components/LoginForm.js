@@ -97,9 +97,9 @@ function LoginForm() {
                           Remember me
                         </label>
                       </div>
-                      <a href="/user/forgotpassword" class="ml-auto">
+                      <Link href="/user/forgotpassword" class="ml-auto">
                         Forgot Password?
-                      </a>
+                      </Link>
                     </div>
                   </div>
                   <div class="col-lg-12 m-b30">
