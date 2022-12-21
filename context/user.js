@@ -13,6 +13,7 @@ const UserProvider = ({ children }) => {
       return ['alert', error.response.data.message];
     }
   }
+  
 
   async function doReset(values) {
     try {
@@ -69,7 +70,7 @@ const UserProvider = ({ children }) => {
       setUser('');
       setEmail('');
       setId('');
-      // router.push('/user/login');
+      router.push('/user/login');
     }
   };
 

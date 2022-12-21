@@ -2,6 +2,8 @@ import React, { useState, useContext } from "react";
 import Link from "next/link";
 import { useForm, reset } from "react-hook-form";
 import { UserContext } from "../context/user";
+import GoogleLogin from "./GoogleLogin";
+import FacebookLogin from "./FacebookLogin";
 
 
 function RegisterForm() {
@@ -70,7 +72,6 @@ function RegisterForm() {
                         <input
                           type="text"
                           className="form-control"
-                          placeholder="Username"
                           {...register("username", {
                             required: "Please choose a username",
                           })}
@@ -85,7 +86,6 @@ function RegisterForm() {
                         <label>Email Address</label>
                         <input
                           type="email"
-                          placeholder="Email Address"
                           className="form-control"
                           {...register("email", {
                             required: "Email is required",
@@ -104,7 +104,6 @@ function RegisterForm() {
                         <input
                           type="password"
                           className="form-control"
-                          placeholder="Password"
                     {...register("password", {
                       required: "You must specify a password",
                       minLength: { value: 8, message: "At least 8 character" },
@@ -120,7 +119,6 @@ function RegisterForm() {
                         <label>Password</label>
                         <input
                          type="password"
-                         placeholder="Confirm Password"
                          {...register("repeatpassword", {
                            validate: (value) =>
                              value === password.current ||
@@ -150,16 +148,8 @@ function RegisterForm() {
                   <div className="col-lg-12">
                     <h6>Login with Social media</h6>
                     <div className="d-flex">
-                      <Link href="#" className="btn flex-fill m-r5 facebook">
-                      
-                        <i className="fa fa-facebook"></i>Facebook
-                      
-                      </Link>
-                      <Link href="#" className="btn flex-fill m-l5 google-plus">
-                      
-                        <i className="fa fa-google-plus"></i>Google Plus
-                      
-                      </Link>
+                      <FacebookLogin/>
+                      <GoogleLogin/>
                       
                     </div>
                   </div>
