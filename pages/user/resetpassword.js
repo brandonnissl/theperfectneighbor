@@ -3,7 +3,7 @@ import useRouter from 'next/router';
 import { UserContext } from '../../context/user';
 import ResetForm from '../../components/ResetForm';
 
-const resetpassword = () => {
+const Resetpassword = () => {
   const { user, checkLogin } = useContext(UserContext);
   useEffect(async () => {
     const res = await checkLogin();
@@ -17,4 +17,4 @@ const resetpassword = () => {
   return <ResetForm />;
 };
 
-export default resetpassword;
+export default Resetpassword;

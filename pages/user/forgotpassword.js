@@ -3,7 +3,7 @@ import useRouter from 'next/router';
 import { UserContext } from '../../context/user';
 import ForgotForm from '../../components/ForgotForm';
 
-const forgotpassword = () => {
+const Forgotpassword = () => {
   const { user, checkLogin } = useContext(UserContext);
   useEffect(async () => {
     const res = await checkLogin();
@@ -17,4 +17,4 @@ const forgotpassword = () => {
   return <ForgotForm />;
 };
 
-export default forgotpassword;
+export default Forgotpassword;
