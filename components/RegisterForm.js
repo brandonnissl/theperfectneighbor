@@ -46,7 +46,7 @@ function RegisterForm() {
           >
             <Link href={"/"}>
             
-              <img src="assets/images/logo-white-2.png" alt="" />
+              <img src="assets/images/logo-w.png" alt="" />
             
             </Link>
             
@@ -119,6 +119,8 @@ function RegisterForm() {
                         <label>Password</label>
                         <input
                          type="password"
+                         
+                         className="form-control"
                          {...register("repeatpassword", {
                            validate: (value) =>
                              value === password.current ||

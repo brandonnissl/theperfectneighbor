@@ -31,7 +31,7 @@ function LoginForm() {
           >
             <Link href={"/"}>
             
-              <img src="assets/images/logo-white-2.png" alt="" />
+              <img src="assets/images/logo-w.png" alt="" />
             
             </Link>
             
