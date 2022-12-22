@@ -15,8 +15,7 @@ import { ReactMarkdown } from "react-markdown/lib/react-markdown";
 import Image from "next/image";
 
 const Catagory = ({ posts, categories, category }) => {
-
-
+ 
   useEffect(() => {
     getUserData();
   }, []);
@@ -64,6 +63,7 @@ const Catagory = ({ posts, categories, category }) => {
             <div class="container">
               <div class="ttr-blog-grid-3 row" id="masonry">
                 {posts.map((post) => (
+                  
                   <div
                     class="post action-card col-lg-4 col-md-6 col-sm-12 col-xs-12 m-b40"
                     key={post.id}

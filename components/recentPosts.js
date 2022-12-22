@@ -25,7 +25,7 @@ const RecentPosts = ({}) => {
             <div class="ttr-post-media">
               {" "}
               <img
-                src={`https://clownfish-app-5whtn.ondigitalocean.app${post.attributes.FeaturedImage.data.attributes.formats.small.url}` || ""}
+                src={post.attributes.FeaturedImage.data.attributes.formats.small.url}
                 width="200"
                 height="143"
                 alt=""
