@@ -70,7 +70,7 @@ const Catagory = ({ posts, categories, category }) => {
                   >
                     <div class="recent-news">
                       <div class="action-box">
-                        <img src={`https://clownfish-app-5whtn.ondigitalocean.app${post.attributes.FeaturedImage.data.attributes.formats.medium.url}`} alt="" />
+                        <img src={post.attributes.FeaturedImage.data.attributes.formats.medium.url} alt="" />
                       </div>
                       <div class="info-bx">
                         <ul class="media-post">

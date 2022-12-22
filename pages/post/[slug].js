@@ -71,7 +71,7 @@ const Post = ({ post, categories }) => {
                   <div className="recent-news blog-lg">
                     <div className="action-box blog-lg">
                       <img
-                        src={`https://clownfish-app-5whtn.ondigitalocean.app${post.attributes.FeaturedImage.data.attributes.url}`}
+                        src={post.attributes.FeaturedImage.data.attributes.url}
                         className="img-fluid"
                       ></img>
                     </div>

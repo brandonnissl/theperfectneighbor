@@ -59,7 +59,7 @@ const Home = ({ posts, categories, homepage }) => {
                       <div className="action-box">
                         <Link href={card.Link}>
                           
-                        <img src={strapiImage(card.CardImage.data.attributes.url)} alt="" />
+                        <img src={card.CardImage.data.attributes.url} alt="" />
                         </Link>
                         <Link href={card.Link} className="btn">
                         
