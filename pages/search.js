@@ -75,7 +75,7 @@ const Search = ({ posts, categories, homepage }) => {
                   <div className="post action-card col-lg-4 col-md-6 col-sm-12 col-xs-12 m-b40" key={post.id}>
                     <div className="recent-news">
                       <div className="action-box">
-                      <img src={post.attributes.FeaturedImage.data.attributes.formats.medium.url} alt="" />
+                      <img src={post.FeaturedImage.formats.medium.url} alt="" />
                       </div>
                       <div className="info-bx">
                         <ul className="media-post">
