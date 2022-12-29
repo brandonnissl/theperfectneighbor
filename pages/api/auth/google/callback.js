@@ -1,7 +1,7 @@
 import axios from '../../../../lib/api';
 import cookie from 'cookie';
 export default async (req, res) => {
-  if (req.method === 'POST') {
+  /*if (req.method === 'POST') {
     await axios
       .get(process.env.NEXT_PUBLIC_STRAPI_API_URL + `/api/auth/google/callback?access_token=${req.body.access_token}`)
       .then((response) => {
@@ -30,5 +30,8 @@ export default async (req, res) => {
       });
   } else if (req.method === 'GET'){
 
-  }
+  }*/
+  console.log("req", req)
+  console.log("res", res)
+  return "TEST";
 };
