@@ -1,7 +1,8 @@
 import axios from '../../../../lib/api';
 import cookie from 'cookie';
 export default async (req, res) => {
-  /*if (req.method === 'POST') {
+  if (req.method === 'POST') {
+    console.log("url", process.env.NEXT_PUBLIC_STRAPI_API_URL + `/api/auth/google/callback?access_token=${req.body.access_token}`)
     await axios
       .get(process.env.NEXT_PUBLIC_STRAPI_API_URL + `/api/auth/google/callback?access_token=${req.body.access_token}`)
       .then((response) => {
@@ -28,10 +29,5 @@ export default async (req, res) => {
       .catch((error) => {
         res.status(405).json({ message: 'already registered with another provider' });
       });
-  } else if (req.method === 'GET'){
-
-  }*/
-  console.log("req", req)
-  console.log("res", res)
-  return "TEST";
+  } 
 };

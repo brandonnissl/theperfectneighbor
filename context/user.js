@@ -26,7 +26,7 @@ const UserProvider = ({ children }) => {
 
   async function doRemind(values) {
     try {
-      const resp = await axios.post(process.env.NEXTPUBLIC_API_URL +'/api/auth/reminder', values);
+      const resp = await axios.post('/api/auth/reminder', values);
       return ['OK', resp.data.message];
     } catch (error) {
       return ['alert', error.response.data.message];
@@ -35,7 +35,7 @@ const UserProvider = ({ children }) => {
 
   async function doGoogleCallback(values) {
     try {
-      const resp = await axios.post(process.env.NEXTPUBLIC_API_URL +'/api/auth/google/callback', values);
+      const resp = await axios.post('/api/auth/google/callback', values);
       return ['OK', resp.data.message];
     } catch (error) {
       return ['alert', error.response.data.message];
@@ -44,7 +44,7 @@ const UserProvider = ({ children }) => {
 
   async function doFacebookCallback(values) {
     try {
-      const resp = await axios.post(process.env.NEXTPUBLIC_API_URL +'/api/auth/facebook/callback', values);
+      const resp = await axios.post('/api/auth/facebook/callback', values);
       return ['OK', resp.data.message];
     } catch (error) {
       return ['alert', error.response.data.message];
@@ -63,7 +63,7 @@ const UserProvider = ({ children }) => {
   }
 
   const doLogout = async () => {
-    const resp = await axios.post(process.env.NEXTPUBLIC_API_URL +'/api/auth/logout', {
+    const resp = await axios.post('/api/auth/logout', {
       method: 'POST',
     });
     if (resp.data.message == 'success') {
