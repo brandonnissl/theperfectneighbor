@@ -25,7 +25,7 @@ export default function GoogleCallback() {
           }
         }
         const createHouseAndTasks = await axios.post(
-          process.env.n8n_URL + "/2c304a04-d4d1-43fa-871b-9aad26bd2d94",
+          "https://n8n.theperfectneighbor.com/webhook/2c304a04-d4d1-43fa-871b-9aad26bd2d94",
           values,
           {
             headers: {
