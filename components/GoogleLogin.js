@@ -3,7 +3,7 @@ import Link from 'next/link';
 
 const GoogleLogin = () => {
   return (
-    <Link href="http://www.theperfectneighbor.com/api/connect/google" className="btn flex-fill m-l5 google-plus">
+    <Link href="https://clownfish-app-5whtn.ondigitalocean.app/api/connect/google" className="btn flex-fill m-l5 google-plus">
                       
                         <i className="fa fa-google-plus"></i>Google Plus
                       
