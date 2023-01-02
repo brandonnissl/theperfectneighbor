@@ -2,9 +2,9 @@ import axios from '../../../../lib/api';
 import cookie from 'cookie';
 export default async (req, res) => {
   if (req.method === 'POST') {
-    console.log("url", process.env.NEXT_PUBLIC_STRAPI_API_URL + `/api/auth/google/callback?access_token=${req.body.access_token}`)
+    
     await axios
-      .get(process.env.NEXT_PUBLIC_STRAPI_API_URL + `/api/auth/google/callback?access_token=${req.body.access_token}`)
+      .get(`/api/auth/google/callback?access_token=${req.body.access_token}`)
       .then((response) => {
         const jwt = response.data.jwt;
         const id = response.data.user.id;
