@@ -2,9 +2,9 @@ import axios from '../../../../lib/api';
 import cookie from 'cookie';
 export default async (req, res) => {
   if (req.method === 'POST') {
-    
+
     await axios
-      .get(`/api/auth/google/callback?access_token=${req.body.access_token}`)
+      .get(`https://clownfish-app-5whtn.ondigitalocean.app/api/auth/google/callback?access_token=${req.body.access_token}`)
       .then((response) => {
         const jwt = response.data.jwt;
         const id = response.data.user.id;
