@@ -9,7 +9,7 @@ export default function GoogleCallback() {
   const router = useRouter();
   const { doGoogleCallback, user, setUser } = useContext(UserContext);
   
-  useEffect(()=> {
+  useEffect(async ()=> {
     async function fetchData(){
       if (router.query.access_token) {
         const res = await doGoogleCallback({
