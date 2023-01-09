@@ -123,5 +123,9 @@ export default async (req, res) => {
     return res.status(200).json({
         message: `Created house and checklist.`,
       });
+  } else {
+    return res.status(200).json({
+      message: `${process.env.NEXT_PUBLIC_STRAPI_API_URL}`
+    })
   }
 };
