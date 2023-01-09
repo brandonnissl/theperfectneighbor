@@ -14,9 +14,10 @@ import { Button } from "reactstrap";
 import { dateFormat } from "../../lib/utils/miscellaneous";
 import user from "../api/auth/user";
 import axios from 'axios';
-
+import HomeInfoQN from "../../components/homeSetupQ/HomeInfoQN";
 
 const Home = ({
+  houses,
   categories,
   userTasks,
   userCompletedTasks,
@@ -60,6 +61,8 @@ const Home = ({
     "#4cc9f0ff",
   ];
 
+  console.warn("house",houses)
+
   return (
     <Layout categories={categories} userData={userData}>
       <main
@@ -72,6 +75,9 @@ const Home = ({
           borderTop: "1px solid #e9ebf0",
         }}
       >
+        {houses.length <= 0 ?
+        <HomeInfoQN />
+        : 
         <div className="container clearfix">
           <div className="db-breadcrumb">
             <h4 className="breadcrumb-title">Dashboard</h4>
@@ -174,6 +180,7 @@ const Home = ({
                   header={userTask.attributes.Name}
                   taskid={userTask.id}
                   userid={cookies.userid}
+                  userTask={userTask}
                 >
                   {userTask.attributes.post.data.attributes.content}
                 </MyModal>
@@ -258,6 +265,8 @@ const Home = ({
             ))}
           </div>
         </div>
+        }
+
       </main>
     </Layout>
   );
@@ -291,17 +300,30 @@ export async function getServerSideProps(context) {
     };
   }
   const [
+    userHouseRes,
     userTasksRes,
     userCompletedTasksRes,
     userFutureTasksRes,
     categoriesRes,
   ] = await Promise.all([
+    fetchAPI("/houses", {
+      populate: "*",
+      filters: {
+        users_permissions_user: {
+          id: {
+            $eq: cookies.userid,
+          },
+        },
+      },
+    }),
     fetchAPI("/user-checklist-tasks", {
       populate: "*",
       filters: {
         house: {
-          id: {
-            $eq: cookies.userid,
+          users_permissions_user: {
+            id: {
+              $eq: cookies.userid,
+            }
           },
         },
         $and: [
@@ -323,8 +345,10 @@ export async function getServerSideProps(context) {
       populate: "*",
       filters: {
         house: {
-          id: {
-            $eq: cookies.userid,
+          users_permissions_user: {
+            id: {
+              $eq: cookies.userid,
+            }
           },
         },
         $and: [
@@ -341,8 +365,10 @@ export async function getServerSideProps(context) {
       populate: "*",
       filters: {
         house: {
-          id: {
-            $eq: cookies.userid,
+          users_permissions_user: {
+            id: {
+              $eq: cookies.userid,
+            }
           },
         },
         $and: [
@@ -363,8 +389,9 @@ export async function getServerSideProps(context) {
     fetchAPI("/categories", { populate: "*" }),
   ]);
 
-  const [categories, userTasks, userCompletedTasks, userFutureTasks] =
+  const [houses, categories, userTasks, userCompletedTasks, userFutureTasks] =
     await Promise.all([
+      userHouseRes.data,
       categoriesRes.data,
       userTasksRes.data,
       userCompletedTasksRes.data,
@@ -373,6 +400,7 @@ export async function getServerSideProps(context) {
 
   return {
     props: {
+      houses,
       categories,
       userTasks,
       userCompletedTasks,

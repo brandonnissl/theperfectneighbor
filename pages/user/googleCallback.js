@@ -18,21 +18,6 @@ export default function GoogleCallback() {
         if (res[0] === 'alert') {
           setError(res[1]);
         }        
-        const values = {
-          data: {
-            Name: res[1].username +"'s House",
-            users_permissions_user: [res[1].id],
-          }
-        }
-        const createHouseAndTasks = await axios.post(
-          "https://n8n.theperfectneighbor.com/webhook/2c304a04-d4d1-43fa-871b-9aad26bd2d94",
-          values,
-          {
-            headers: {
-              "Content-Type": "application/json"
-            },
-          }
-        );
         setUser(res[1].username);
       }
     }

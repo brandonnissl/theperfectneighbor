@@ -40,7 +40,6 @@ export default async (req, res) => {
   };
 
   const createHouse = async (userData) => {
-    console.log(userData.id)
     const values = {
       data: {
         Name: userData.username + "'s House",
@@ -49,8 +48,6 @@ export default async (req, res) => {
       
         
     };
-
-    console.log(values)
     const resp = await axios.post(
       process.env.n8n_URL + "/7f3a969d-c05f-46aa-908e-07749f595d1b",
       values,

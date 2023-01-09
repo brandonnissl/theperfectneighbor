@@ -3,7 +3,7 @@ import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 import ReactMarkdown from "react-markdown";
 
 
-const MyModal = ({ children, header, trigger, taskid, userid }) => {
+const MyModal = ({ children, header, trigger, taskid, userid, userTask }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   const [isLoading, setIsLoading] = useState(false);
@@ -15,10 +15,8 @@ const MyModal = ({ children, header, trigger, taskid, userid }) => {
         const response =  await fetch('/api/closetask', {
             method: "POST",
             body: JSON.stringify({
-                id:taskid,
-                user_permissions_user:10,
-                url:"https://n8n.theperfectneighbor.com/webhook/357882ba-8322-4767-a18f-91f806d7e7e0"
-                
+              userTask:userTask,
+              userid: userid,
             }),
             headers: {
                 'Content-Type': 'application/json',

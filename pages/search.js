@@ -44,7 +44,6 @@ const Search = ({ posts, categories, homepage }) => {
     return str.split(/\s+/).slice(0, 12).join(" ");
   }
 
-  const headerColor = "dark";
   return (
     <Layout categories={categories} userData={userData}>
       { posts.length > 0 ? 

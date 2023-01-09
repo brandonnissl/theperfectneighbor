@@ -6,8 +6,12 @@ import { fetchAPI } from "../lib/api";
 import { strapiImage } from "../lib/utils/miscellaneous";
 import React, { useEffect, useContext, useState } from "react";
 import Link from "next/link";
+import axios from "axios";
 
 const Home = ({ posts, categories, homepage }) => {
+  useEffect(() => {
+    getUserData();
+  }, []);
   const [userData, setUserData] = useState();
 
 
