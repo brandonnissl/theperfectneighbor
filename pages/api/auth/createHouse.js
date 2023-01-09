@@ -36,7 +36,8 @@ export default async (req, res) => {
         }
         console.log(error.config);
       })
-    /*Query to get all checklist tasks
+    
+    //Query to get all checklist tasks
     const query = qs.stringify({
       filters: {
         $or: [
@@ -82,7 +83,19 @@ export default async (req, res) => {
           populate: "*",
         },
       })
-      .then((resp) => resp.data);
+      .then((resp) => resp.data)
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
+      });
 
     getChecklist.data.forEach(async (element) => {
       
@@ -126,8 +139,20 @@ export default async (req, res) => {
             Complete: false,
         }
 
-      }).then((resp) => resp.data);
-    });*/
+      }).then((resp) => resp.data)
+      .catch(function (error) {
+        if (error.response) {
+          console.log(error.response.data);
+          console.log(error.response.status);
+          console.log(error.response.headers);
+        } else if (error.request) {
+          console.log(error.request);
+        } else {
+          console.log('Error', error.message);
+        }
+        console.log(error.config);
+      })
+    });
   };
 
   if (req.method === "POST" || req.method === "OPTIONS") {
