@@ -24,7 +24,7 @@ export default async (req, res) => {
         },
       })
       .then((resp) => resp.data);
-    //Query to get all checklist tasks
+    /*Query to get all checklist tasks
     const query = qs.stringify({
       filters: {
         $or: [
@@ -115,7 +115,7 @@ export default async (req, res) => {
         }
 
       }).then((resp) => resp.data);
-    });
+    });*/
   };
 
   if (req.method === "POST" || req.method === "OPTIONS") {
