@@ -15,30 +15,34 @@ const HomeInfoQN = () => {
   const [zipcode, setZipcode] = useState("");
 
   const componentList = [
-    <FinishSetup page={page} setPage={setPage} />,
+    <FinishSetup page={page} setPage={setPage} key={0}/>,
     <HomeTypes
       page={page}
       setPage={setPage}
       homeType={homeType}
       setHomeType={setHomeType}
+      key={1}
     />,
     <Yards
       page={page}
       setPage={setPage}
       yardType={yardType}
       setYardType={setYardType}
+      key={2}
     />,
     <HeatingType
       page={page}
       setPage={setPage}
       heatingType={heatingType}
       setHeatingType={setHeatingType}
+      key={3}
     />,
     <CoolingType
       page={page}
       setPage={setPage}
       coolingType={coolingType}
       setCoolingType={setCoolingType}
+      key={4}
     />,
     <ZipCode
       page={page}
@@ -53,6 +57,7 @@ const HomeInfoQN = () => {
       setYardType={setYardType}
       homeType={homeType}
       setHomeType={setHomeType}
+      key={5}
     />,
   ];
 
