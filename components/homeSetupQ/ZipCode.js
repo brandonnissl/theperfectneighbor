@@ -1,5 +1,5 @@
 import React from "react";
-import Zip from 'react-zipcode'
+import Zip from '../../lib/utils/ZipCode';
 import axios from "axios";
 import { useEffect,useState } from "react";
 const ZipCode = ({ page, setPage, zipcode, setZipcode, coolingType, heatingType, yardType,homeType }) => {

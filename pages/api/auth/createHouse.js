@@ -12,7 +12,7 @@ export default async (req, res) => {
     //Create House
 
     const createHouse = await axios
-      .post("http://localhost:1337/api/houses", {
+      .post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/houses`, {
         data: {
           Name: body.user + "'s House",
           users_permissions_user: body.userid,
@@ -65,7 +65,7 @@ export default async (req, res) => {
 
 
     const getChecklist = await axios
-      .get(`http://localhost:1337/api/posts?${query}`, {
+      .get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/posts?${query}`, {
         params: {
           populate: "*",
         },
@@ -105,7 +105,7 @@ export default async (req, res) => {
       }
       item.Complete = false;
 
-      const createChecklists = await axios.post(`http://localhost:1337/api/user-checklist-tasks`,{
+      const createChecklists = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/user-checklist-tasks`,{
         data: {
             Name: item.title,
             post: element.id,

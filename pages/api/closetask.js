@@ -53,7 +53,7 @@ export default async (req, res) => {
     }
 
     const createChecklists = await axios
-      .post(`http://localhost:1337/api/user-checklist-tasks`, {
+      .post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/user-checklist-tasks`, {
         data: {
           Name: item.Name,
           post: item.post.data.id,
@@ -64,7 +64,7 @@ export default async (req, res) => {
       })
       .then((resp) => resp.data);
     const userCompletedTask = await axios
-      .put(`http://localhost:1337/api/user-checklist-tasks/${req.body.userTask.id}`, {
+      .put(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/user-checklist-tasks/${req.body.userTask.id}`, {
         data: {
           Complete: true,
         },
