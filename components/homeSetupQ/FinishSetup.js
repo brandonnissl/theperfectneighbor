@@ -13,7 +13,7 @@ const FinishSetup = ({ page, setPage }) => {
                 Thanks for creating an account!
               </h3>
               <h4>
-                Let's grab a few basic items to create your custom checklist.
+                Let&apos;s grab a few basic items to create your custom checklist.
               </h4>
               <button class="btn "style={{width: 400}} onClick={() => setPage(page + 1)}><b>Ok! Lets Do It!</b></button>
           </div>
