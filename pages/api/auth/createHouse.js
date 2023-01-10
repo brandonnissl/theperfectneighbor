@@ -32,11 +32,13 @@ export default async (req, res) => {
         } else if (error.request) {
           console.log(error.request);
         } else {
-          console.log('Error', error.message);
+          console.log("Error", error.message);
         }
         console.log(error.config);
-      })
-    
+      });
+
+    console.log('house', createHouse)
+
     //Query to get all checklist tasks
     const query = qs.stringify({
       filters: {
@@ -76,7 +78,6 @@ export default async (req, res) => {
       },
     });
 
-
     const getChecklist = await axios
       .get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/posts?${query}`, {
         params: {
@@ -92,13 +93,12 @@ export default async (req, res) => {
         } else if (error.request) {
           console.log(error.request);
         } else {
-          console.log('Error', error.message);
+          console.log("Error", error.message);
         }
         console.log(error.config);
       });
 
     getChecklist.data.forEach(async (element) => {
-      
       var td = new Date();
       var season = getSeason(td);
       var newDate = new Date();
@@ -108,7 +108,7 @@ export default async (req, res) => {
       if (item.Frequency) {
         var newDate = d;
         newDate = new Date(newDate.setDate(d.getDate())); //+ item.Frequency
-        
+
         item.StartDate = newDate;
       } else {
         let n = 1;
@@ -130,39 +130,43 @@ export default async (req, res) => {
       }
       item.Complete = false;
 
-      const createChecklists = await axios.post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/user-checklist-tasks`,{
-        data: {
-            Name: item.title,
-            post: element.id,
-            house: createHouse.data.id,
-            StartDate: item.StartDate,
-            Complete: false,
-        }
-
-      }).then((resp) => resp.data)
-      .catch(function (error) {
-        if (error.response) {
-          console.log(error.response.data);
-          console.log(error.response.status);
-          console.log(error.response.headers);
-        } else if (error.request) {
-          console.log(error.request);
-        } else {
-          console.log('Error', error.message);
-        }
-        console.log(error.config);
-      })
+      const createChecklists = await axios
+        .post(
+          `${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/user-checklist-tasks`,
+          {
+            data: {
+              Name: item.title,
+              post: element.id,
+              house: createHouse.data.id,
+              StartDate: item.StartDate,
+              Complete: false,
+            },
+          }
+        )
+        .then((resp) => resp.data)
+        .catch(function (error) {
+          if (error.response) {
+            console.log(error.response.data);
+            console.log(error.response.status);
+            console.log(error.response.headers);
+          } else if (error.request) {
+            console.log(error.request);
+          } else {
+            console.log("Error", error.message);
+          }
+          console.log(error.config);
+        });
     });
   };
 
   if (req.method === "POST" || req.method === "OPTIONS") {
-    await createHouseAndChecklist(req.body)
+    await createHouseAndChecklist(req.body);
     return res.status(200).json({
-        message: `Created house and checklist.`,
-      });
+      message: `Created house and checklist.`,
+    });
   } else {
     return res.status(200).json({
-      message: `${process.env.NEXT_PUBLIC_STRAPI_API_URL}`
-    })
+      message: `${process.env.NEXT_PUBLIC_STRAPI_API_URL}`,
+    });
   }
 };
