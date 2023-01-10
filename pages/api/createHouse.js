@@ -163,11 +163,13 @@ export default async (req, res) => {
   };
 
   if (req.method === "POST" || req.method === "OPTIONS") {
+
     await createHouseAndChecklist(req.body);
     return res.status(200).json({
       message: `Created house and checklist.`,
     });
   } else {
+    await createHouseAndChecklist(req.body);
     return res.status(200).json({
       message: `${process.env.NEXT_PUBLIC_STRAPI_API_URL}`,
     });
