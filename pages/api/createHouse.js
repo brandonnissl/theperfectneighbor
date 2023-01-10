@@ -14,6 +14,10 @@ export default async (req, res) => {
 
     const createHouse = await axios
       .post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/houses`, {
+        headers: {
+          Authorization:
+          `Bearer ${process.env.NEXT_API_KEY}`,
+        },
         data: {
           Name: body.user + "'s House",
           users_permissions_user: body.userid,
@@ -162,6 +166,7 @@ export default async (req, res) => {
         });
     });*/
   }
+
 
   return res.status(200).json({
     message: `Created house and checklist.`,
