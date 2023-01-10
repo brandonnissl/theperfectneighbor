@@ -37,9 +37,12 @@ export default async (req, res) => {
         console.log(error.config);
       });
 
+      return res.status(200).json({
+        message: `${createHouse}`,
+      });
     console.log('house', createHouse)
 
-    //Query to get all checklist tasks
+    /*Query to get all checklist tasks
     const query = qs.stringify({
       filters: {
         $or: [
@@ -156,7 +159,7 @@ export default async (req, res) => {
           }
           console.log(error.config);
         });
-    });
+    });*/
   };
 
   if (req.method === "POST" || req.method === "OPTIONS") {
