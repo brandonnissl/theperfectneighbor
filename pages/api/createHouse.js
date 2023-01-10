@@ -4,12 +4,13 @@ import {
   getSeason,
   getSeasonNumber,
   getSeasonStartMonth,
-} from "../../lib/utils/miscellaneous"
+} from "../../lib/utils/miscellaneous";
 const qs = require("qs");
 
 export default async (req, res) => {
-  const createHouseAndChecklist = async (body) => {
+  if (req.method === "POST") {
     //Create House
+    const body = req.body;
 
     const createHouse = await axios
       .post(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/houses`, {
@@ -37,10 +38,10 @@ export default async (req, res) => {
         console.log(error.config);
       });
 
-      return res.status(200).json({
-        message: `${createHouse}`,
-      });
-    console.log('house', createHouse)
+    return res.status(200).json({
+      message: `${createHouse}`,
+    });
+    console.log("house", createHouse);
 
     /*Query to get all checklist tasks
     const query = qs.stringify({
@@ -160,18 +161,9 @@ export default async (req, res) => {
           console.log(error.config);
         });
     });*/
-  };
-
-  if (req.method === "POST" || req.method === "OPTIONS") {
-
-    await createHouseAndChecklist(req.body);
-    return res.status(200).json({
-      message: `Created house and checklist.`,
-    });
-  } else {
-    await createHouseAndChecklist(req.body);
-    return res.status(200).json({
-      message: `${process.env.NEXT_PUBLIC_STRAPI_API_URL}`,
-    });
   }
+
+  return res.status(200).json({
+    message: `Created house and checklist.`,
+  });
 };
