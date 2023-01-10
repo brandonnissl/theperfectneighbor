@@ -96,11 +96,12 @@ export default async (req, res) => {
       },
     ];
 
-    console.log("q", qs.stringify(queries[1]));
+    
 
     queries.forEach(async (query) => {
+      console.log("q", qs.stringify(query));
       const getChecklist = await axios
-        .get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/posts?${query}`, {
+        .get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/posts?${qs.stringify(query)}`, {
           params: {
             populate: "*",
           },
