@@ -23,7 +23,7 @@ const ZipCode = ({ page, setPage, zipcode, setZipcode, coolingType, heatingType,
 
   async function callAPI (){
     setPage(page + 1);
-    const createHouse = await axios.post('/api/auth/createHouse', {
+    const createHouse = await axios.post('/api/createHouse', {
       userid: userData.id,
       user: userData.user,
       zipcode: zipcode,
