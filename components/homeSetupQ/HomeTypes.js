@@ -27,7 +27,7 @@ const HomeTypes = ({ page, setPage, homeType, setHomeType }) => {
                 padding: "15px 0px 0px 0px",
                 height: 170,
               }}
-              onClick={() => {setPage(page + 1); setHomeType("Single-Family")}}
+              onClick={() => {setPage(page + 1); setHomeType("Single-Family Home")}}
             >
               <img src="/assets/images/house.png" />
               <h4 style={{ color: "white" }}>Single-Family Home</h4>
