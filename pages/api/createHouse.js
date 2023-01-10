@@ -4,7 +4,7 @@ import {
   getSeason,
   getSeasonNumber,
   getSeasonStartMonth,
-} from "../lib/utils/miscellaneous";
+} from "../../lib/utils/miscellaneous"
 const qs = require("qs");
 
 export default async (req, res) => {
