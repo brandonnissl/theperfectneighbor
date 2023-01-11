@@ -60,7 +60,7 @@ const HomeInfoQN = () => {
       setHomeType={setHomeType}
       key={5}
     />,
-    <WaitingForAPI page={page} setPage={setPage}/>
+    <WaitingForAPI page={page} setPage={setPage} key={6}/>
   ];
 
   return <div>{componentList[page]}</div>;
