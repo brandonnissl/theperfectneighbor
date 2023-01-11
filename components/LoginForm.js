@@ -3,6 +3,9 @@ import React, { useState, useContext } from "react";
 import { useForm } from "react-hook-form";
 import { UserContext } from "../context/user";
 
+import GoogleLogin from "./GoogleLogin";
+import FacebookLogin from "./FacebookLogin";
+
 function LoginForm() {
   const { handleSubmit, register } = useForm();
 
