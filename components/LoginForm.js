@@ -117,17 +117,8 @@ function LoginForm() {
                   <div class="col-lg-12">
                     <h6>Login with Social media</h6>
                     <div class="d-flex">
-                      <Link href="#" class="btn flex-fill m-r5 facebook">
-                      
-                        <i class="fa fa-facebook"></i>Facebook
-                      
-                      </Link>
-                      <Link href="#" class="btn flex-fill m-l5 google-plus">
-                      
-                        <i class="fa fa-google-plus"></i>Google Plus
-                      
-                      </Link>
-                      
+                      <FacebookLogin/>
+                      <GoogleLogin/>
                     </div>
                   </div>
                 </div>

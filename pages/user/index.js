@@ -181,6 +181,7 @@ const Home = ({
                   taskid={userTask.id}
                   userid={cookies.userid}
                   userTask={userTask}
+                  postLink={userTask.attributes.post.data.attributes.slug}
                 >
                   {userTask.attributes.post.data.attributes.content}
                 </MyModal>

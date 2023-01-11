@@ -97,9 +97,9 @@ export default async (req, res) => {
     ];
 
     
+    var itemsProcessed = 0;
 
     queries.forEach(async (query) => {
-      console.log("q", qs.stringify(query));
       const getChecklist = await axios
         .get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/posts?${qs.stringify(query)}`, {
           params: {
@@ -119,7 +119,6 @@ export default async (req, res) => {
           }
           console.log(error.config);
         });
-      console.warn("checklist", getChecklist.data);
       getChecklist.data.forEach(async (element) => {
         var td = new Date();
         var season = getSeason(td);
@@ -179,10 +178,14 @@ export default async (req, res) => {
             console.log(error.config);
           });
       });
+      itemsProcessed++;
+      if(itemsProcessed === queries.length){
+        return res.status(200).json({
+          message: `Created house and checklist.`,
+        });
+      }
     });
   }
 
-  return res.status(200).json({
-    message: `Created house and checklist.`,
-  });
+  
 };

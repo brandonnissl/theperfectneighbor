@@ -59,7 +59,7 @@ const ZipCode = ({ page, setPage, zipcode, setZipcode, coolingType, heatingType,
               <Zip class="form-control" placeholder="30329"  onValue={(value)=> {setZipcode(value)}} />
 
               <div class="input-group-append">
-                <button class="btn" onClick={async () => { await callAPI(); }}>
+                <button class="btn" onClick={async () => { setPage(page + 1); await callAPI(); }}>
                   Next
                 </button>
               </div>

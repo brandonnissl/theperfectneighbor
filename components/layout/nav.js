@@ -7,6 +7,11 @@ const Nav = ({ categories, loggedin, userData }) => {
       loggedin = true;
     }
   }
+
+  const mainHeaderCategories = categories.slice(0, 4);
+  const moreHeaderCategories = categories.slice(4,categories.length)
+   
+
   var account_or_loggin = (
     <span>
       <li>
@@ -95,15 +100,18 @@ const Nav = ({ categories, loggedin, userData }) => {
             id="menuDropdown"
           >
             <ul className="nav navbar-nav">
-              <li className="active">
-                <Link href={"javascript:;"}>
-                  
-                    Home <i className="fa fa-chevron-down"></i>
-                
-                </Link>
-
-                <ul className="sub-menu">
-                  {categories.map((category) => (
+              
+              {mainHeaderCategories.map((category) => (
+                    <li key={category.id}>
+                      <Link href={`/categories/${category.attributes.slug}`}>
+                         {category.attributes.name}
+                      </Link>
+                    </li>
+                  ))}
+              <li>
+                <a>More <i class="fa fa-chevron-down"></i> </a>
+                <ul class="sub-menu">
+                  {moreHeaderCategories.map((category) => (
                     <li key={category.id}>
                       <Link href={`/categories/${category.attributes.slug}`}>
                          {category.attributes.name}
@@ -112,7 +120,11 @@ const Nav = ({ categories, loggedin, userData }) => {
                   ))}
                 </ul>
               </li>
+
             </ul>
+            
+                  
+                
           </div>
         </div>
       </div>

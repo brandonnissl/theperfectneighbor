@@ -1,9 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Button, Modal, ModalBody, ModalHeader, ModalFooter } from "reactstrap";
 import ReactMarkdown from "react-markdown";
+import {getWordStr} from "../lib/utils/miscellaneous"
+import Link from "next/link";
 
-
-const MyModal = ({ children, header, trigger, taskid, userid, userTask }) => {
+const MyModal = ({ children, header, trigger, taskid, userid, userTask, postLink }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   const [isLoading, setIsLoading] = useState(false);
@@ -49,7 +50,9 @@ const MyModal = ({ children, header, trigger, taskid, userid, userTask }) => {
         <ModalBody>
             <div className="row">
                 <div className="col-sm-8">
-                    <ReactMarkdown >{children}</ReactMarkdown>
+                    <ReactMarkdown >{getWordStr(children, 50)+"... "+`[Read More](/post/${postLink})`}</ReactMarkdown>
+      
+                        
                 </div>
                 <div className="col-sm-4">
                     Ads

@@ -5,6 +5,7 @@ import HeatingType from "./HeatingType";
 import HomeTypes from "./HomeTypes";
 import Yards from "./Yards";
 import ZipCode from "./ZipCode";
+import WaitingForAPI from "./WaitingForAPI";
 
 const HomeInfoQN = () => {
   const [page, setPage] = useState(0);
@@ -59,6 +60,7 @@ const HomeInfoQN = () => {
       setHomeType={setHomeType}
       key={5}
     />,
+    <WaitingForAPI page={page} setPage={setPage}/>
   ];
 
   return <div>{componentList[page]}</div>;
