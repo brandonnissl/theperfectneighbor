@@ -26,17 +26,25 @@ const Post = ({ post, categories }) => {
   }, []);
 
   const [userData, setUserData] = useState();
+  const [addToCheckList, setAddToChecklist] = useState();
 
   const getUserData = () => {
     return axios
       .get("/api/auth/user", {})
       .then((res) => {
         setUserData(res.data);
+        axios.get("/api/getPostExistsInChecklist", {
+          userData: userData,
+          post: post
+        })
+        .then((resp) => {
+          console.warn("resp",resp.data)
+          setAddToChecklist(resp.data);
+        })
+        .catch((err) => console.error(err));
       })
       .catch((err) => console.error(err));
   };
-
-  console.warn(post.attributes.FeaturedImage.data.attributes)
 
   return (
     <Layout categories={categories} userData={userData}>
