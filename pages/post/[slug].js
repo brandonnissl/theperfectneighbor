@@ -18,6 +18,7 @@ import {
   FacebookShareButton,
   TwitterShareButton,
 } from "next-share";
+import {getCookies} from 'next-cookies'
 
 const Post = ({ post, categories }) => {
   const url = "https://www.theperfectneighbor.com/post/" + post.attributes.slug;
@@ -107,7 +108,7 @@ const Post = ({ post, categories }) => {
                       <div className="ttr-divider bg-gray">
                         <i className="icon-dot c-square"></i>
                       </div>
-                      <h6>SHARE </h6>
+                      <h6>SHARE {getCookies()}</h6>
                       <ul className="list-inline contact-social-bx">
                         <FacebookShareButton url={url}>
                           <li>
