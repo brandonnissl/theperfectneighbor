@@ -35,8 +35,10 @@ const Post = ({ post, categories }) => {
         })
         .catch((err) => console.error(err));
         
+      } catch (error){
+        console.log(error);
       }
-    })
+    })();
     
   }, []);
 
