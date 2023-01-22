@@ -18,22 +18,19 @@ import {
   FacebookShareButton,
   TwitterShareButton,
 } from "next-share";
-import {getCookies} from 'next-cookies'
+import cookies from "next-cookies";
 
 const Post = ({ post, categories }) => {
   const url = "https://www.theperfectneighbor.com/post/" + post.attributes.slug;
   const [userData, setUserData] = useState();
   const [addToCheckList, setAddToChecklist] = useState();
 
-
-
   useEffect(() => {
     (async () => {
       try {
-        const getUserData = await axios
-        .get("/api/auth/user", {})
+        const getUserData = await axios.get("/api/auth/user", {});
         setUserData(getUserData.data);
-         
+
         const getInChecklist = await axios
           .get("/api/getPostExistsInChecklist", {
             params: {
@@ -51,7 +48,6 @@ const Post = ({ post, categories }) => {
       }
     })();
   }, []);
-
 
   return (
     <Layout categories={categories} userData={userData}>
@@ -108,7 +104,7 @@ const Post = ({ post, categories }) => {
                       <div className="ttr-divider bg-gray">
                         <i className="icon-dot c-square"></i>
                       </div>
-                      <h6>SHARE {getCookies()}</h6>
+                      <h6>SHARE </h6>
                       <ul className="list-inline contact-social-bx">
                         <FacebookShareButton url={url}>
                           <li>
@@ -161,6 +157,13 @@ const Post = ({ post, categories }) => {
                         </form>
                       </div>
                     </div>
+                    <ul>
+                      {Object.entries(cookies).map(([name, value]) => (
+                        <li key={name}>
+                          {name}: {value}
+                        </li>
+                      ))}
+                    </ul>
                     <RecentPosts />
                   </aside>
                 </div>
