@@ -3,6 +3,7 @@ const qs = require("qs");
 
 export default async (req, res) => {
   if (req.method === "GET") {
+    res.status(200).json(req);
 
     const getHouse = axios.get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/houses?filters[users_permissions_user][id][$eq]=${req.body.userData.id}`)
       .then((resp) => {
