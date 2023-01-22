@@ -21,16 +21,18 @@ import {
 
 const Post = ({ post, categories }) => {
   const url = "https://www.theperfectneighbor.com/post/" + post.attributes.slug;
+  const [userData, setUserData] = useState();
+  const [addToCheckList, setAddToChecklist] = useState();
+
+
+
   useEffect(() => {
     (async () => {
       try {
         const getUserData = await axios
         .get("/api/auth/user", {})
-        .then((res) => {
-          setUserData(res.data);
-        })
-        .catch((err) => console.error(err));
-        
+        setUserData(getUserData.data);
+         
         const getInChecklist = await axios
           .get("/api/getPostExistsInChecklist", {
             params: {
@@ -48,9 +50,6 @@ const Post = ({ post, categories }) => {
       }
     })();
   }, []);
-
-  const [userData, setUserData] = useState();
-  const [addToCheckList, setAddToChecklist] = useState();
 
 
   return (
