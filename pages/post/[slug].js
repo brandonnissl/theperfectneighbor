@@ -22,26 +22,36 @@ import {
 const Post = ({ post, categories }) => {
   const url = "https://www.theperfectneighbor.com/post/" + post.attributes.slug;
   useEffect(() => {
-    getUserData();
-  }, []);
-
-  const [userData, setUserData] = useState();
-  const [addToCheckList, setAddToChecklist] = useState();
-
-  const getUserData = () => {
-    return axios
-      .get("/api/auth/user", {})
-      .then((res) => {
-        setUserData(res.data);
-        axios.get("/api/getPostExistsInChecklist", {
+    ( async () => {
+      try {
+        await getUserData();
+        const getInChecklist = await axios.get("/api/getPostExistsInChecklist", {
           userData: userData,
           post: post
         })
         .then((resp) => {
-          console.warn("resp",resp.data)
+          console.warn("resp",resp)
           setAddToChecklist(resp.data);
         })
         .catch((err) => console.error(err));
+        
+      }
+    })
+    
+  }, []);
+
+  
+
+
+
+  const [userData, setUserData] = useState();
+  const [addToCheckList, setAddToChecklist] = useState();
+
+  const getUserData = async () => {
+    return await axios
+      .get("/api/auth/user", {})
+      .then((res) => {
+        setUserData(res.data)
       })
       .catch((err) => console.error(err));
   };
