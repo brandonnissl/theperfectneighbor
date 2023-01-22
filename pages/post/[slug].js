@@ -24,7 +24,13 @@ const Post = ({ post, categories }) => {
   useEffect(() => {
     (async () => {
       try {
-        await getUserData();
+        const getUserData = await axios
+        .get("/api/auth/user", {})
+        .then((res) => {
+          setUserData(res.data);
+        })
+        .catch((err) => console.error(err));
+        
         const getInChecklist = await axios
           .get("/api/getPostExistsInChecklist", {
             params: {
@@ -46,14 +52,6 @@ const Post = ({ post, categories }) => {
   const [userData, setUserData] = useState();
   const [addToCheckList, setAddToChecklist] = useState();
 
-  const getUserData = async () => {
-    return await axios
-      .get("/api/auth/user", {})
-      .then((res) => {
-        setUserData(res.data);
-      })
-      .catch((err) => console.error(err));
-  };
 
   return (
     <Layout categories={categories} userData={userData}>
