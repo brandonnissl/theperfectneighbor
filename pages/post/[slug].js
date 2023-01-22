@@ -22,29 +22,26 @@ import {
 const Post = ({ post, categories }) => {
   const url = "https://www.theperfectneighbor.com/post/" + post.attributes.slug;
   useEffect(() => {
-    ( async () => {
+    (async () => {
       try {
         await getUserData();
-        const getInChecklist = await axios.get("/api/getPostExistsInChecklist", {
-          userData: userData,
-          post: post
-        })
-        .then((resp) => {
-          console.warn("resp",resp)
-          setAddToChecklist(resp.data);
-        })
-        .catch((err) => console.error(err));
-        
-      } catch (error){
+        const getInChecklist = await axios
+          .get("/api/getPostExistsInChecklist", {
+            params: {
+              userData: userData,
+              post: post,
+            },
+          })
+          .then((resp) => {
+            console.warn("resp", resp);
+            setAddToChecklist(resp.data);
+          })
+          .catch((err) => console.error(err));
+      } catch (error) {
         console.log(error);
       }
     })();
-    
   }, []);
-
-  
-
-
 
   const [userData, setUserData] = useState();
   const [addToCheckList, setAddToChecklist] = useState();
@@ -53,7 +50,7 @@ const Post = ({ post, categories }) => {
     return await axios
       .get("/api/auth/user", {})
       .then((res) => {
-        setUserData(res.data)
+        setUserData(res.data);
       })
       .catch((err) => console.error(err));
   };
@@ -75,9 +72,7 @@ const Post = ({ post, categories }) => {
           <div className="container">
             <ul className="list-inline">
               <li key={post.attributes.category.id}>
-                
-                  {post.attributes.category.data.attributes.name}
-                
+                {post.attributes.category.data.attributes.name}
               </li>
               <li key={post.id}>{post.attributes.title}</li>
             </ul>
