@@ -21,6 +21,7 @@ import {
 } from "next-share";
 import Seo from "../../components/frontend/seo";
 import { getCookie, hasCookie, getCookies } from "cookies-next";
+import CanonicalTag from "../../components/frontend/canonicalTag";
 
 const Post = ({ post, categories }) => {
   const url = "https://www.theperfectneighbor.com/post/" + post.attributes.slug;
@@ -100,9 +101,11 @@ const Post = ({ post, categories }) => {
   const metaDescription = post.attributes.Seo.metaDescription;
   const keywords = post.attributes.Seo.keywords;
   const preventIndexing = post.attributes.Seo.preventIndexing;
+  const canonicalTag = "/post/"+post.attributes.slug;
   return (
     <Layout categories={categories} userData={userData}>
       <Seo seo={post.attributes.Seo} />
+      <CanonicalTag path={canonicalTag}/>
       <div className="page-content bg-white">
         <div
           className="page-banner ovbl-dark"
