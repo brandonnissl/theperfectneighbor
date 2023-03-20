@@ -7,6 +7,7 @@ import { strapiImage } from "../lib/utils/miscellaneous";
 import React, { useEffect, useContext, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
+import CanonicalTag from "../components/frontend/canonicalTag";
 
 const Home = ({ posts, categories, homepage }) => {
   useEffect(() => {
@@ -24,8 +25,11 @@ const Home = ({ posts, categories, homepage }) => {
       .catch((err) => console.error(err));
   };
   return (
+    
     <div>
+      <CanonicalTag path={""}/>
       <Layout categories={categories} userData={userData}></Layout>
+
       <div className="page-content bg-white">
         <div className="section-area section-sp1 ovpr-dark bg-fix online-cours">
           <div className="container">
