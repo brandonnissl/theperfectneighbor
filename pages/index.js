@@ -35,11 +35,11 @@ const Home = ({ posts, categories, homepage }) => {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center text-white">
-                <h2>
+                <h1>
                   {homepage.attributes.HeadingSpan1}{" "}
                   {homepage.attributes.HeadingSpan2}{" "}
                   {homepage.attributes.HeadingSpan3}
-                </h2>
+                </h1>
                 <h4>{homepage.attributes.HeadingText}</h4>
                 <form className="cours-search" action="/search">
                   <div className="input-group">

@@ -39,7 +39,7 @@ iframe{border:0;}
 ====================*/
 h1, h2, h3, h4, h5, h6 { color: #111111; font-family: rubik; margin-top:0; }
 h1 a, h2 a, h3 a, h4 a, h5 a, h6 a { color: inherit; }
-h1 {font-size: 36px; line-height: 45px; margin-bottom: 25px; font-weight: 700; }
+h1 {font-size: 32px; line-height: 45px; margin-bottom: 25px; font-weight: 700; }
 h2 {font-size: 32px; line-height: 45px; margin-bottom: 25px; font-weight: 700; }
 h3 {font-size: 28px; line-height: 35px; margin-bottom: 20px; font-weight: 700; }
 h4 {font-size: 22px; line-height: 28px; margin-bottom: 15px; font-weight: 500; }
@@ -370,7 +370,7 @@ dl dd { margin-bottom: 10px; }
 	Text Color
 ====================*/
 .bg-tp { background-color: transparent; }
-.bg-primary { background-color: ; }
+.bg-primary { background-color: transparent; }
 .bg-white { background-color: #FFF; }
 .bg-black { background-color: #000; }
 .bg-gray { background-color: #F7F9FB; }
