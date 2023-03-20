@@ -41,7 +41,7 @@ export default async (req, res) => {
         }
         console.log(error.config);
       });
-
+      console.warn("house", createHouse)
 
     //Query to get all checklist tasks
     const queries = [

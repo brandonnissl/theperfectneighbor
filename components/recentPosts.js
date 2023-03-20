@@ -14,7 +14,6 @@ const RecentPosts = ({}) => {
       .then((res) => setPostsData(res.data))
       .catch((err) => console.error(err));
   }, []);
-  console.warn(posts[0])
 
   return (
     <div class="widget recent-posts-entry">

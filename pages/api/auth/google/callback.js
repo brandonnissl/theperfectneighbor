@@ -4,7 +4,7 @@ export default async (req, res) => {
   if (req.method === 'POST') {
 
     await axios
-      .get(`https://clownfish-app-5whtn.ondigitalocean.app/api/auth/google/callback?access_token=${req.body.access_token}`)
+      .get(`${process.env.NEXT_PUBLIC_STRAPI_API_URL}/api/auth/google/callback?access_token=${req.body.access_token}`)
       .then((response) => {
         const jwt = response.data.jwt;
         const id = response.data.user.id;

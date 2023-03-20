@@ -3,7 +3,7 @@ import cookie from 'cookie';
 export default async (req, res) => {
   if (req.method === 'POST') {
     var resp = {};
-    const apiLocal = process.env.NEXT_PUBLIC_STRAPI_API_URL + '/api/auth/local';
+    const apiLocal = process.env.NEXTAUTH_URL + '/api/auth/local';
     resp = await axios
       .post(apiLocal, req.body)
       .then((response) => {

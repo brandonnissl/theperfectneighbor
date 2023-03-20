@@ -109,8 +109,8 @@ const Nav = ({ categories, loggedin, userData }) => {
                     </li>
                   ))}
               <li>
-                <a>More <i class="fa fa-chevron-down"></i> </a>
-                <ul class="sub-menu">
+                <a>More <i className="fa fa-chevron-down"></i> </a>
+                <ul className="sub-menu">
                   {moreHeaderCategories.map((category) => (
                     <li key={category.id}>
                       <Link href={`/categories/${category.attributes.slug}`}>

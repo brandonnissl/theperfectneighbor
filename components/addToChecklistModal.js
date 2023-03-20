@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import {getWordStr} from "../lib/utils/miscellaneous"
 import Link from "next/link";
 
-const MyModal = ({ children, header, trigger, taskid, userid, userTask, postLink }) => {
+const addToCheckListModal = ({ children, header, trigger, userid, postLink }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   const [isLoading, setIsLoading] = useState(false);
@@ -49,21 +49,12 @@ const MyModal = ({ children, header, trigger, taskid, userid, userTask, postLink
       <Modal isOpen={modal} toggle={toggle}>
         <ModalHeader>{header}</ModalHeader>
         <ModalBody>
-            <div className="row">
-                <div className="col-sm-8">
-                    <ReactMarkdown >{getWordStr(children, 50)+"... "+`[Read More](/post/${postLink})`}</ReactMarkdown>
-      
-                        
-                </div>
-                <div className="col-sm-4">
-                    Ads
-                </div>
+            <div>
+              
+
+
             </div>
         </ModalBody>
-        <ModalFooter>
-            <Button color="primary" onClick={callAPI}>Complete</Button>{' '}
-            <Button color="secondary" onClick={toggle}>Cancel</Button>
-          </ModalFooter>
       </Modal>
     </div>
   );

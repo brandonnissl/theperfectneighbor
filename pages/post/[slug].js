@@ -6,6 +6,7 @@ import Link from "next/link";
 import reactMarkdown from "react-markdown";
 import React, { useEffect, useContext, useState } from "react";
 import axios from "axios";
+import { Button } from "reactstrap";
 import {
   specialChar,
   dateFormat,
@@ -18,39 +19,91 @@ import {
   FacebookShareButton,
   TwitterShareButton,
 } from "next-share";
-import cookies from "next-cookies";
+import Head from "next/head";
+import Seo from "../../components/frontend/seo";
+import { getCookie, hasCookie, getCookies } from "cookies-next";
 
 const Post = ({ post, categories }) => {
   const url = "https://www.theperfectneighbor.com/post/" + post.attributes.slug;
   const [userData, setUserData] = useState();
-  const [addToCheckList, setAddToChecklist] = useState();
+  const [taskData, setTaskData] = useState();
+  const [addToCheckList, setAddToChecklist] = useState(0);
+  const [addToCheckListStartDate, setaddToCheckListStartDate] = useState();
+  const [completeTaskText, setCompleteTaskText] = useState()
+  
+  const [isLoading, setIsLoading] = useState(false);
 
+  //Close Task if available
+  const closeTask = async () => {
+    try {
+      console.warn("data", taskData)
+      const response = await fetch('/api/closetask', {
+        method: "POST",
+        body: JSON.stringify({
+          userTask:taskData,
+          userId: userData.id,
+        }),
+        headers: {
+          'Content-Type': 'application/json',
+          Accept: 'application/json',
+        },
+      });
+
+      if(!response.ok){
+        throw new Error(`Error! status: ${response.status}`)
+      }
+
+      const result = await response.json();
+      window.location.reload(false);
+    } catch (err){
+      console.log(err);
+    } finally {
+      setIsLoading(false);
+    }
+  }
+  
+  
+  
   useEffect(() => {
     (async () => {
       try {
         const getUserData = await axios.get("/api/auth/user", {});
-        setUserData(getUserData.data);
-
-        const getInChecklist = await axios
-          .get("/api/getPostExistsInChecklist", {
-            params: {
-              userData: userData,
-              post: post,
-            },
-          })
-          .then((resp) => {
-            console.warn("resp", resp);
-            setAddToChecklist(resp.data);
-          })
-          .catch((err) => console.error(err));
+        if (getUserData.status === 200) {
+          setUserData(getUserData.data);
+          const getInChecklist = await axios
+            .get("/api/getPostExistsInChecklist", {
+              params: {
+                userId: getUserData.data.id,
+                postId: post.id,
+              },
+            })
+            .then((resp) => {
+              try {
+                if (resp.data.data[0].id) {
+                  setAddToChecklist(resp.data.data[0].id);
+                  setaddToCheckListStartDate(resp.data.data[0].attributes.StartDate)
+                  setCompleteTaskText("Due: "+dateFormat(resp.data.data[0].attributes.StartDate))
+                  setTaskData(resp.data.data[0])
+                }
+              } catch (error) {
+                setAddToChecklist(-1);
+              }
+            })
+            .catch((err) => console.error(err));
+        } 
       } catch (error) {
         console.log(error);
       }
     })();
   }, []);
 
+  const metaTitle = post.attributes.Seo.metaTitle;
+  const metaDescription = post.attributes.Seo.metaDescription;
+  const keywords = post.attributes.Seo.keywords;
+  const preventIndexing = post.attributes.Seo.preventIndexing;
   return (
     <Layout categories={categories} userData={userData}>
+      <Seo seo={post.attributes.seo} />
       <div className="page-content bg-white">
         <div
           className="page-banner ovbl-dark"
@@ -100,7 +153,27 @@ const Post = ({ post, categories }) => {
                           </a>
                         </li>
                       </ul>
+                      <div className="completeTaskMain">
+                        {addToCheckList > 0 && (
+                          <Button 
+                          onMouseEnter={()=> {setCompleteTaskText("Complete")}}
+                          onMouseLeave={()=> { setCompleteTaskText("Due: "+dateFormat(addToCheckListStartDate))}}
+                          onClick={closeTask}
+                          
+                          color="primary" style={{width:"100%"}} >
+                            {completeTaskText}
+                          </Button>
+                        )}
+                        {addToCheckList == 0 && (
+                          <Button color="#ff7800" style={{width:"100%"}} onClick={event =>  window.location.href='/register'}>Sign Up for a custom checklist</Button>
+                        )}
+                        {addToCheckList < 0 && (
+                          <Button color="primary" style={{width:"100%"}}>Add to Checklist</Button>
+                        )}
+                      </div>
+
                       <ReactMarkdown>{post.attributes.content}</ReactMarkdown>
+
                       <div className="ttr-divider bg-gray">
                         <i className="icon-dot c-square"></i>
                       </div>
@@ -134,9 +207,29 @@ const Post = ({ post, categories }) => {
                     </div>
                   </div>
                 </div>
+
                 <div className="col-lg-4 col-xl-4">
                   <aside className="side-bar sticky-top">
                     <div className="widget">
+                    <div className="completeTaskSide">
+                        {addToCheckList > 0 && (
+                          <Button 
+                          onMouseEnter={()=> {setCompleteTaskText("Complete")}}
+                          onMouseLeave={()=> { setCompleteTaskText("Due: "+dateFormat(addToCheckListStartDate))}}
+                          onClick={closeTask}
+                          
+                          color="primary" style={{width:"100%"}} >
+                            {completeTaskText}
+                          </Button>
+                        )}
+                        {addToCheckList == 0 && (
+                          <Button color="#ff7800" style={{width:"100%"}} onClick={event =>  window.location.href='/register'}>Sign Up for a custom checklist</Button>
+                        )}
+                        {/*{addToCheckList < 0 && (
+                          <Button 
+                          color="primary" style={{width:"100%"}}>Add to Checklist</Button>
+                        )}*/}
+                      </div>
                       <h6 className="widget-title">Search</h6>
                       <div className="search-bx style-1">
                         <form role="search" action="/search">
@@ -157,13 +250,7 @@ const Post = ({ post, categories }) => {
                         </form>
                       </div>
                     </div>
-                    <ul>
-                      {Object.entries(cookies).map(([name, value]) => (
-                        <li key={name}>
-                          {name}: {value}
-                        </li>
-                      ))}
-                    </ul>
+
                     <RecentPosts />
                   </aside>
                 </div>
@@ -174,6 +261,8 @@ const Post = ({ post, categories }) => {
       </div>
     </Layout>
   );
+
+  
 };
 
 export async function getStaticPaths() {
