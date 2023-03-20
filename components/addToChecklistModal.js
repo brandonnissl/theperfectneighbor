@@ -4,7 +4,7 @@ import ReactMarkdown from "react-markdown";
 import {getWordStr} from "../lib/utils/miscellaneous"
 import Link from "next/link";
 
-const addToCheckListModal = ({ children, header, trigger, userid, postLink }) => {
+const AddToCheckListModal = ({ children, header, trigger, userid, postLink }) => {
   const [modal, setModal] = useState(false);
   const toggle = () => setModal(!modal);
   const [isLoading, setIsLoading] = useState(false);
@@ -60,4 +60,4 @@ const addToCheckListModal = ({ children, header, trigger, userid, postLink }) =>
   );
 };
 
-export default MyModal;
+export default AddToCheckListModal;

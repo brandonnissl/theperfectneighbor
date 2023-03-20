@@ -19,7 +19,6 @@ import {
   FacebookShareButton,
   TwitterShareButton,
 } from "next-share";
-import Head from "next/head";
 import Seo from "../../components/frontend/seo";
 import { getCookie, hasCookie, getCookies } from "cookies-next";
 
@@ -103,7 +102,7 @@ const Post = ({ post, categories }) => {
   const preventIndexing = post.attributes.Seo.preventIndexing;
   return (
     <Layout categories={categories} userData={userData}>
-      <Seo seo={post.attributes.seo} />
+      <Seo seo={post.attributes.Seo} />
       <div className="page-content bg-white">
         <div
           className="page-banner ovbl-dark"
@@ -167,9 +166,9 @@ const Post = ({ post, categories }) => {
                         {addToCheckList == 0 && (
                           <Button color="#ff7800" style={{width:"100%"}} onClick={event =>  window.location.href='/register'}>Sign Up for a custom checklist</Button>
                         )}
-                        {addToCheckList < 0 && (
+                        {/*addToCheckList < 0 && (
                           <Button color="primary" style={{width:"100%"}}>Add to Checklist</Button>
-                        )}
+                        )*/}
                       </div>
 
                       <ReactMarkdown>{post.attributes.content}</ReactMarkdown>
