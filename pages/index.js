@@ -8,8 +8,9 @@ import React, { useEffect, useContext, useState } from "react";
 import Link from "next/link";
 import axios from "axios";
 import CanonicalTag from "../components/frontend/canonicalTag";
+import Seo from '../components/frontend/seo';
 
-const Home = ({ posts, categories, homepage }) => {
+const Home = ({ posts, categories, homepage, global }) => {
   useEffect(() => {
     getUserData();
   }, []);
@@ -24,10 +25,11 @@ const Home = ({ posts, categories, homepage }) => {
       })
       .catch((err) => console.error(err));
   };
+
   return (
-    
     <div>
       <CanonicalTag path={""}/>
+      <Seo seo={global.attributes.DefaultSeo}/>
       <Layout categories={categories} userData={userData}></Layout>
 
       <div className="page-content bg-white">
@@ -150,12 +152,13 @@ const Home = ({ posts, categories, homepage }) => {
 };
 
 export async function getStaticProps() {
-  const [categoriesRes, homepageRes] = await Promise.all([
+  const [categoriesRes, homepageRes, globalRes] = await Promise.all([
     //fetchAPI("/posts", { populate: ["featuredImage", "category"] }),
     fetchAPI("/categories", { populate: "*" }),
     fetchAPI("/home-page", {
       populate: ["*", "HomeCards", "HomeCards.CardImage"],
     }),
+    fetchAPI("/global", { populate: "*" }),
     /*fetchAPI("/homepage", {
       populate: {
         hero: "*",
@@ -164,15 +167,17 @@ export async function getStaticProps() {
     }),*/
   ]);
 
-  const [categories, homepage] = await Promise.all([
+  const [categories, homepage, global] = await Promise.all([
     categoriesRes.data,
     homepageRes.data,
+    globalRes.data,
   ]);
 
   return {
     props: {
       categories,
       homepage,
+      global,
     },
     revalidate: 1,
   };

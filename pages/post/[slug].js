@@ -97,10 +97,7 @@ const Post = ({ post, categories }) => {
     })();
   }, []);
 
-  const metaTitle = post.attributes.Seo.metaTitle;
-  const metaDescription = post.attributes.Seo.metaDescription;
-  const keywords = post.attributes.Seo.keywords;
-  const preventIndexing = post.attributes.Seo.preventIndexing;
+
   const canonicalTag = "/post/"+post.attributes.slug;
   return (
     <Layout categories={categories} userData={userData}>

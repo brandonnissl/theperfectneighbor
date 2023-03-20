@@ -16,12 +16,12 @@ const RecentPosts = ({}) => {
   }, []);
 
   return (
-    <div class="widget recent-posts-entry">
-      <h6 class="widget-title">Recent Posts</h6>
-      <div class="widget-post-bx">
+    <div className="widget recent-posts-entry">
+      <h6 className="widget-title">Recent Posts</h6>
+      <div className="widget-post-bx">
         {posts.map((post) => (
-          <div class="widget-post clearfix" key={post.id}>
-            <div class="ttr-post-media">
+          <div className="widget-post clearfix" key={post.id}>
+            <div className="ttr-post-media">
               {" "}
               <img
                 src={post.attributes.FeaturedImage.data.attributes.formats.small.url}
@@ -30,19 +30,19 @@ const RecentPosts = ({}) => {
                 alt=""
               />{" "}
             </div>
-            <div class="ttr-post-info">
-              <div class="ttr-post-header">
-                <h6 class="post-title">
+            <div className="ttr-post-info">
+              <div className="ttr-post-header">
+                <h6 className="post-title">
                 <Link href={`/post/${post.attributes.slug}`}>
                 {post.attributes.title}
                   </Link>
                 </h6>
               </div>
-              <ul class="media-post">
+              <ul className="media-post">
                 <li>
                   <Link href={`/post/${post.attributes.slug}`}>
                     
-                      <i class="fa fa-calendar"></i>
+                      <i className="fa fa-calendar"></i>
                       {dateFormat(post.attributes.publishedAt)}
                     
                   </Link>
