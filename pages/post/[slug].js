@@ -24,6 +24,8 @@ import { getCookie, hasCookie, getCookies } from "cookies-next";
 import CanonicalTag from "../../components/frontend/canonicalTag";
 
 const Post = ({ post, categories }) => {
+
+  console.warn("affilate", post)
   const url = "https://www.theperfectneighbor.com/post/" + post.attributes.slug;
   const [userData, setUserData] = useState();
   const [taskData, setTaskData] = useState();
@@ -209,7 +211,12 @@ const Post = ({ post, categories }) => {
 
                 <div className="col-lg-4 col-xl-4">
                   <aside className="side-bar sticky-top">
-                    <div className="widget">
+                    <div className="widget"> 
+                    {post.attributes.affilate_link && (
+                      <div>{post.attributes.affilate_link.data.attributes.producturl}</div>
+                    )}
+
+
                     <div className="completeTaskSide">
                         {addToCheckList > 0 && (
                           <Button 
@@ -282,7 +289,7 @@ export async function getStaticProps({ params }) {
     filters: {
       slug: params.slug,
     },
-    populate: "*",
+    populate:"*",
   });
   const categoriesRes = await fetchAPI("/categories", { populate: "*" });
 
